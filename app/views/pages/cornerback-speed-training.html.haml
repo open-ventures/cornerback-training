@@ -1,0 +1,523 @@
+!!! Strict
+!!! XML
+%html{lang: "en", "xml:lang" => "en", xmlns: "http://www.w3.org/1999/xhtml"}
+  %head
+    %title
+      / Insert your title here
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}/
+
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700", media: "all", rel: "stylesheet", type: "text/css"}/
+    
+    %link{href: "/css/motioncss.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/motioncss-widgets.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/font-awesome.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/rs-settings.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/magnific-popup.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/style.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/responsive.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/animation.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/color_5.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    
+    %script{src: "/js/jquery-1.9.1.js", type: "text/javascript"}
+    %script{src: "/js/g-alert.js", type: "text/javascript"}
+    %script{src: "/js/jquery.carousello.js", type: "text/javascript"}
+    %script{src: "/js/jquery.flexslider.js", type: "text/javascript"}
+    %script{src: "/js/jquery.isotope.js", type: "text/javascript"}
+    %script{src: "/js/jquery.magnific-popup.js", type: "text/javascript"}
+    %script{src: "/js/jquery.parallax.js", type: "text/javascript"}
+    %script{src: "/js/jquery.simpleplaceholder.js", type: "text/javascript"}
+    %script{src: "/js/jquery.smoothScroll.js", type: "text/javascript"}
+    %script{src: "/js/jquery.themepunch.revolution.min.js", type: "text/javascript"}
+    %script{src: "/js/plugins.js", type: "text/javascript"}
+    %script{src: "/js/waypoints.min.js", type: "text/javascript"}
+    %script{src: "/js/w-lang.js", type: "text/javascript"}
+    %script{src: "/js/w-search.js", type: "text/javascript"}
+    %script{src: "/js/w-tabs.js", type: "text/javascript"}
+    %script{src: "/js/w-timeline.js", type: "text/javascript"}
+
+    %link{href: "/css/ilightbox.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %script{src: "/js/jquery.mousewheel.js", type: "text/javascript"}
+    %script{src: "/js/ilightbox.packed.jss", type: "text/javascript"}
+    %script{async: "", defer: "defer", src: "http://iprodev.com/projects.php?p=ilightbox", type: "text/javascript"}
+
+    :css
+      .g-cols > .two-thirds, .g-cols > .four-sixths {
+      width: 65.3333%;
+      }
+      .g-cols > .one-third, .g-cols > .two-sixths {
+      width: 32.6666%;
+      }
+      .g-cols > div {
+      margin-left: 2.0000%;
+      }
+
+    %link{href: "/css/ilightbox.css", rel: "stylesheet"}/
+
+    %script{async: "", defer: "defer", src: "http://iprodev.com/projects.php?p=ilightbox", type: "text/javascript"}
+    %script{src: "/js/jquery.mousewheel.js"}
+    %script{src: "/js/ilightbox.packed.js"}
+    
+
+
+
+    
+     
+
+    %body.l-body.home
+
+    / CANVAS
+    .l-canvas.type_wide.col_cont.headerpos_fixed.headertype_extended
+      .l-canvas-h
+        / MAIN
+        .l-main
+          .l-main-h.workout.videos
+
+            .l-submain.for_pagehead.color_alternate
+              .l-submain-h.g-html.i-cf
+                .w-pagehead
+                  %h1 Cornerback Speed Training
+                  %p 17 Training Videos
+                  / breadcrums
+                  .w-pagehead-nav
+                    .w-pagehead-nav-h
+                      %a.w-pagehead-nav-item.type_all{href: "/pages/cornerback-dynamic-warmup.html"}
+                        %i.icon-chevron-left
+                      %a.w-pagehead-nav-item.type_all{href: "#"}
+                        %i.icon-th
+                      %a.w-pagehead-nav-item.type_next{href: "/pages/cornerback-strength-training.html"}
+                        %i.icon-chevron-right
+            .l-submain.for_filters
+              .l-submain-h.g-html
+                .w-filters.animate_afl
+                  .w-filters-h
+                    .w-filters-list
+                      .w-filters-item.active
+                        %a.w-filters-item-link{"data-filter" => "*", href: "javascript:void(0);"} All
+                      .w-filters-item
+                        %a.w-filters-item-link{"data-filter" => ".speedTechnique", href: "javascript:void(0);"} Speed Technique
+                      .w-filters-item
+                        %a.w-filters-item-link{"data-filter" => ".startTraining", href: "javascript:void(0);"} Start Training
+                      .w-filters-item
+                        %a.w-filters-item-link{"data-filter" => ".powerTraining", href: "javascript:void(0);"} Power Training
+                      .w-filters-item
+                        %a.w-filters-item-link{"data-filter" => ".inclineTraining", href: "javascript:void(0);"} Incline Training
+                      .w-filters-item
+                        %a.w-filters-item-link{"data-filter" => ".advanced", href: "javascript:void(0);"} Advanced
+                      
+                      
+            
+            .l-submain.workout
+              .l-submain-h.g-html
+                .w-portfolio.columns_4.type_sortable
+                  .w-portfolio-h
+                    .w-portfolio-list
+                      .w-portfolio-list-h
+
+                        .w-portfolio-item.speedTechnique
+                          .w-portfolio-item-h.animate_hfc
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_1.thumbnail{"data-caption" => "High Knees", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/cyPxB4gRgaM?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/high-knees.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title High Knees
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "lunge-circuit.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+
+                        .w-portfolio-item.speedTechnique
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_2.thumbnail{"data-caption" => "Turnover Strikes", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/5Oy2QdgZOMg?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/turnover-strikes.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Turnover Strikes 
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "standing-hamstring-curls.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+
+                        .w-portfolio-item.speedTechnique
+                          .w-portfolio-item-h.animate_hfc.d2
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_3.thumbnail{"data-caption" => "Turnover Kicks", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/jO7fpwRK1wA?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/turnover-kicks.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Turnover Kicks
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "long-slow-turns.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.speedTechnique
+                          .w-portfolio-item-h.animate_hfc
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_4.thumbnail{"data-caption" => "A/B Skips", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/nLiIktOIGBo?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/ab-skips.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title A/B Skips
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "long-hip-fliips.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.speedTechnique
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_5.thumbnail{"data-caption" => "Arm Swings", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/D-uio9qNEDQ?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/arm-swings.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Arm Swings
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "hitch-n-go-breaks.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item
+                          .w-portfolio-item-h.animate_hfc.d2
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_6.thumbnail{"data-caption" => "Standing Calf Raises", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/2YdKkKT7MZE?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/standing-calf-raises.png"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Standing Calf Raises
+                                .port-summary  
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "whip-route-breaks.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.speedTechnique
+                          .w-portfolio-item-h.animate_hfc
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_7.thumbnail{"data-caption" => "Strides, Walk Turns", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/LKeea_AgEQc?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/strides-walk-turns.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Strides, Walk Turns
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "out-n-in-breaks.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.speedTechnique
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_8.thumbnail{"data-caption" => "Strides, Jog Turns", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/ejkas03GI9A?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/strides-jog-turns.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Strides, Jog Turns
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "out-n-up-breaks.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.startTraining.speedTechnique
+                          .w-portfolio-item-h.animate_hfc
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_9.thumbnail{"data-caption" => "20-yd Burst", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/OzbQg0TPyV8?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/20-yard-burst.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title 20-yd Burst
+                                .port-summary 
+                                  %p Speed Technique
+                                  %span
+                                    .label.label-danger LS
+                                .hidden-links
+                                  %a{href: "open-hitch-breaks.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.advanced
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_10.thumbnail{"data-caption" => "40-yd Dash Parachute", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/GEMhfaDPqw0?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/40-yard-dash-with-parachute.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title 40-yd Dash Parachute
+                                .port-summary 
+                                  %p Advanced
+                                  %span
+                                    .label.label-warning CS
+                                .hidden-links
+                                  %a{href: "out-n-up-breaks.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.startTraining.powerTraining.speedTechnique
+                          .w-portfolio-item-h.animate_hfc.d2
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_11.thumbnail{"data-caption" => "Power Sled", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/6y8hIjRpDyQ?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/power-sled.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Power Sled
+                                .port-summary 
+                                  %p Start Training
+                                  %span
+                                    .label.label-info UB
+                                .hidden-links
+                                  %a{href: "post-corner-slow-turns.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.inclineTraining
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_12.thumbnail{"data-caption" => "Stadium / Bleachers", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/toF91t4NsP4?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/stadiums.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Stadium / Bleachers
+                                .port-summary 
+                                  %p Incline Training
+                                  %span
+                                    .label.label-info UB
+                                .hidden-links
+                                  %a{href: "post-corner-speed-turns.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.inclineTraining
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_13.thumbnail{"data-caption" => "Hill Sprints", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/jQ8lNgM3x7I?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/sand-hill.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Hill Sprints
+                                .port-summary 
+                                  %p Incline Training
+                                  %span
+                                    .label.label-info UB
+                                .hidden-links
+                                  %a{href: "hip-flips-with-45-degree-break.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.shoulders
+                          .w-portfolio-item-h.animate_hfc.d2
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_14.thumbnail{"data-caption" => "Tuck Jumps", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/lDC6JUseImY?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/tuck-jumps.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Tuck Jumps
+                                .port-summary 
+                                  %p Power Training
+                                  %span
+                                    .label.label-info UB
+                                .hidden-links
+                                  %a{href: "hip-flips-with-315-degree-break.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_15.thumbnail{"data-caption" => "Hip Adductors (machine)", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/pMRYcUeTzAU?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/hip-adductors-machine.png"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Hip Adductors (machine)
+                                .port-summary 
+                                  %p Hips
+                                  %span
+                                    .label.label-inverse HP
+                                .hidden-links
+                                  %a{href: "hip-flips-with-45-degree-break.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.powerTraining
+                          .w-portfolio-item-h.animate_hfc.d1
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_16.thumbnail{"data-caption" => "Broad Jumps", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/n-q45cfvw7I?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/broad-jumps.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Broad Jumps
+                                .port-summary 
+                                  %p Power Training
+                                  %span
+                                    .label.label-info UB
+                                .hidden-links
+                                  %a{href: "post-corner-speed-turns.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+
+                        .w-portfolio-item.powerTraining.advanced
+                          .w-portfolio-item-h.animate_hfc.d2
+                            .w-portfolio-item-anchor
+                              .w-portfolio-item-image
+                                %a#video_17.thumbnail{"data-caption" => "Single-leg Bounds", "data-options" => "width:1920, height:1080", href: "//www.youtube.com/embed/ubtKR8DNB0o?rel=0"}
+                                  %img{alt: "", src: "/img/video_thumbnails/240x180/single-leg-bounds.jpg"}/
+                                .w-portfolio-item-meta
+                                  %h2.w-portfolio-item-title Single-leg Bounds
+                                .port-summary 
+                                  %p Power Training
+                                  %span
+                                    .label.label-inverse HP
+                                .hidden-links
+                                  %a{href: "hip-flips-with-315-degree-break.html"}
+                                    %button.g-btn.type_primary.size_small
+                                      %span
+                                        .icon.icon-share-alt
+                                        See Full Overview
+        / /MAIN
+    / /CANVAS
+    / FOOTER
+    .l-footer.type_normal
+      .l-footer-h
+        
+        / subfooter: bottom
+      .l-subfooter.at_bottom
+        .l-subfooter-h.i-cf
+          .w-copyright
+            © 2013 All rights reserved.
+            %a{href: ""} TrainForFootball.com
+          / NAV
+          %nav.w-nav
+            .w-nav-h
+              .w-nav-list.layout_hor.width_auto.float_right.level_1
+                .w-nav-list-h
+                  .w-nav-item.level_1
+                    .w-nav-item-h
+                      %a.w-nav-anchor.level_1{href: "index.html"} Privary Policy
+                  .w-nav-item.level_1
+                    .w-nav-item-h
+                      %a.w-nav-anchor.level_1{href: "about.html"} Terms & Agreements
+  / /FOOTER
+  %a.w-toplink{href: "#"}
+    %i.icon-angle-up
+    
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    :javascript
+      //Video - Simple Usage
+            $('#video_1').iLightBox();
+            $('#video_2').iLightBox();
+            $('#video_3').iLightBox();
+            $('#video_4').iLightBox();
+            $('#video_5').iLightBox();
+            $('#video_6').iLightBox();
+            $('#video_7').iLightBox();
+            $('#video_8').iLightBox();
+            $('#video_9').iLightBox();
+            $('#video_10').iLightBox();
+            $('#video_11').iLightBox();
+            $('#video_12').iLightBox();
+            $('#video_13').iLightBox();
+            $('#video_14').iLightBox();
+            $('#video_15').iLightBox();
+            $('#video_16').iLightBox();
+            $('#video_17').iLightBox();
+           

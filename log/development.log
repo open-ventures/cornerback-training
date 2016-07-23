@@ -1,0 +1,981 @@
+Connecting to database specified by database.yml
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20130725215424)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (7.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130725215424')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddFullNameToUser (20130726190451)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "users" ADD COLUMN "full_name" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130726190451')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddConfirmableToUser (20130726193134)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD COLUMN "confirmation_token" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD COLUMN "confirmed_at" timestamp
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD COLUMN "confirmation_sent_at" timestamp[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "confirmed_at" = '2016-07-23 12:23:49.864602'[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130726193134')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProfiles (20130726204901)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "profiles" ("id" serial primary key, "user_id" integer, "dob" date, "country" character varying(255), "height_ft" integer, "height_in" integer, "weight" integer, "football_exp_level" integer, "weight_training_exp" integer, "broad_jump_last" decimal(10,2), "broad_jump_pr" decimal(10,2), "yard_dash_40_last" decimal(10,2), "yard_dash_40_pr" decimal(10,2), "bench_press_225_last" decimal(10,2), "bench_press_225_pr" decimal(10,2), "short_shuttle_last" decimal(10,2), "short_shuttle_pr" decimal(10,2), "l_drill_last" decimal(10,2), "l_drill_pr" decimal(10,2), "vertical_jump_last" decimal(10,2), "vertical_jump_pr" decimal(10,2), "bench_press_last" decimal(10,2), "bench_press_pr" decimal(10,2), "back_squat_last" decimal(10,2), "back_squat_pr" decimal(10,2), "dead_lift_last" decimal(10,2), "dead_lift_pr" decimal(10,2), "hang_clean_last" decimal(10,2), "hang_clean_pr" decimal(10,2), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130726204901')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldsToProfile (20130729130513)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "profiles" ADD COLUMN "weight_kg" decimal(10,2)[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "profiles" ADD COLUMN "height_m" decimal(10,2)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130729130513')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to CreatePerformanceTests (20130729131203)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "performance_tests" ("id" serial primary key, "broad_jump_p1" decimal(10,2), "broad_jump_p2" decimal(10,2), "broad_jump_p3" decimal(10,2), "yard_dash_40_p1" decimal(10,2), "yard_dash_40_p2" decimal(10,2), "yard_dash_40_p3" decimal(10,2), "bench_press_225_p1" decimal(10,2), "bench_press_225_p2" decimal(10,2), "bench_press_225_p3" decimal(10,2), "short_shuttle_p1" decimal(10,2), "short_shuttle_p2" decimal(10,2), "short_shuttle_p3" decimal(10,2), "l_drill_p1" decimal(10,2), "l_drill_p2" decimal(10,2), "l_drill_p3" decimal(10,2), "vertical_jump_p1" decimal(10,2), "vertical_jump_p2" decimal(10,2), "vertical_jump_p3" decimal(10,2), "bench_press_p1" decimal(10,2), "bench_press_p2" decimal(10,2), "bench_press_p3" decimal(10,2), "back_squat_p1" decimal(10,2), "back_squat_p2" decimal(10,2), "back_squat_p3" decimal(10,2), "dead_lift_p1" decimal(10,2), "dead_lift_p2" decimal(10,2), "dead_lift_p3" decimal(10,2), "hang_clean_p1" decimal(10,2), "hang_clean_p2" decimal(10,2), "hang_clean_p3" decimal(10,2), "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130729131203')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Migrating to CreatePages (20130729164924)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "pages" ("id" serial primary key, "slug" character varying(255), "access" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130729164924')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to DeviseCreateAdmins (20130730172051)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "admins" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130730172051')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddStripeIdToUsers (20130730205139)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD COLUMN "stripe_id" character varying(255)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130730205139')
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddAvatarToProfiles (20130802180223)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "profiles" ADD COLUMN "avatar_file_name" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "profiles" ADD COLUMN "avatar_content_type" character varying(255)
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "profiles" ADD COLUMN "avatar_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "profiles" ADD COLUMN "avatar_updated_at" timestamp
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130802180223')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddManuallyPaidToUsers (20130814182412)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (8.1ms)[0m  ALTER TABLE "users" ADD COLUMN "manually_paid" boolean DEFAULT 'f'
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130814182412')[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+Migrating to AddPlanToUsers (20130814185003)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" DROP "manually_paid"
+  [1m[36m (4.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "plan" integer DEFAULT 0[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130814185003')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnsToUsers (20130829111606)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD COLUMN "provider" character varying(255)[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD COLUMN "uid" character varying(255)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130829111606')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddSessionsTable (20130829113919)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.2ms)[0m  CREATE TABLE "sessions" ("id" serial primary key, "session_id" character varying(255) NOT NULL, "data" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [1m[35m (0.6ms)[0m  CREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130829113919')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddBuyNowToUsers (20131019062347)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD COLUMN "buy_now" boolean
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20131019062347')[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mPage Exists (0.7ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-workouts' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.9ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-workouts"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week1' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week1"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week2' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week2"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week3' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week3"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week4' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week4"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week5' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week5"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week6' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week6"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.3ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week1' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week1"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week2' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week2"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week3' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week3"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week4' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week4"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week5' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week5"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week6' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week6"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week1' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week1"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week2' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week2"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week3' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week3"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week4' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week4"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week5' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week5"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week6' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week6"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-program-guide' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-program-guide"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-find-a-field' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-find-a-field"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-find-a-gym' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-find-a-gym"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-find-a-track' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-find-a-track"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-incline-training' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-incline-training"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-equipment-guide' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-equipment-guide"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.3ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ab-wheel' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ab-wheel"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'back-extensions' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "back-extensions"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ball-crunches' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ball-crunches"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'db-press' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "db-press"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'db-shoulder-circuit' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "db-shoulder-circuit"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'heidi-circuit' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "heidi-circuit"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'hip-abductors-machine' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "hip-abductors-machine"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'hip-adductors-machine' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "hip-adductors-machine"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'hip-extensions' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "hip-extensions"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'incline-db-press' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "incline-db-press"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'lunge-circuit' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "lunge-circuit"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'planks' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "planks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'pull-ups' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "pull-ups"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'seated-pull-downs' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "seated-pull-downs"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'seated-rows' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "seated-rows"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'seated-torso-twists' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "seated-torso-twists"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'side-planks' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "side-planks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'single-leg-calf-raises' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "single-leg-calf-raises"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'single-leg-glute-bridges' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "single-leg-glute-bridges"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'single-leg-press' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "single-leg-press"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'single-leg-raises' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "single-leg-raises"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'single-leg-squats' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "single-leg-squats"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'stability-ball-curls' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "stability-ball-curls"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'standing-hamstring-curl' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "standing-hamstring-curl"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'torso-twists-cable' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "torso-twists-cable"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'knee-grabs' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "knee-grabs"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'whirl-kicks' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "whirl-kicks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'sumo-stretch' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "sumo-stretch"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'high-kicks' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "high-kicks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'walking-hamstring' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "walking-hamstring"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'walking-lunges' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "walking-lunges"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'long-weave' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "long-weave"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'long-speed-turns' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "long-speed-turns"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'long-slow-turns' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "long-slow-turns"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'long-hip-flips' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "long-hip-flips"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'hitch-n-go-breaks' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "hitch-n-go-breaks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'whip-route-breaks' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "whip-route-breaks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'out-n-in-breaks' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "out-n-in-breaks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'box-drill' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "box-drill"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.5ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'open-hitch-breaks' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "open-hitch-breaks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'dig-breaks' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "dig-breaks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'post-corner-speed-turns' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "post-corner-speed-turns"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'post-corner-slow-turns' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "post-corner-slow-turns"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'hip-flips-with-45-degree-break' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "hip-flips-with-45-degree-break"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.3ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'hip-flips-with-315-degree-break' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "hip-flips-with-315-degree-break"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'high-knees' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "high-knees"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ladder-drills-lateral' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ladder-drills-lateral"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ladder-drills-lateral-with-hop' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ladder-drills-lateral-with-hop"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ladder-drills-sidestep' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ladder-drills-sidestep"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ladder-drills-backwards-step' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ladder-drills-backwards-step"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.2ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ladder-drills-backwards-lateral' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ladder-drills-backwards-lateral"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.6ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ladder-drills-ins-and-outs' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ladder-drills-ins-and-outs"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'short-shuttle-drill' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "short-shuttle-drill"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'l-drill' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "l-drill"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'high-knees' LIMIT 1
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'turnover-strikes' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "turnover-strikes"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'turnover-kicks' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "turnover-kicks"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'ab-skips' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "ab-skips"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'arm-swings' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "arm-swings"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'strides-walk-turns' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "strides-walk-turns"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'strides-jog-turns' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "strides-jog-turns"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '20-yd-burst' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "20-yd-burst"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '40-yd-dash-with-parachute' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "40-yd-dash-with-parachute"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'power-sled' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "power-sled"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'stadiums' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "stadiums"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'hill-sprints' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "hill-sprints"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'broad-jumps' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "broad-jumps"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'tuck-jumps' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "tuck-jumps"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'single-leg-bounds' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 1], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "single-leg-bounds"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week1' LIMIT 1[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week2' LIMIT 1
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week3' LIMIT 1[0m
+  [1m[35mPage Exists (0.1ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week4' LIMIT 1
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week5' LIMIT 1[0m
+  [1m[35mPage Exists (0.3ms)[0m  SELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week6' LIMIT 1
+  [1m[36mPage Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week7' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week7"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week8' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week8"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week9' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week9"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week10' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week10"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week11' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week11"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week12' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week12"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week13' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week13"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week14' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week14"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week15' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week15"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week16' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week16"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week17' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week17"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '6d_week18' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "6d_week18"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week7' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week7"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week8' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week8"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week9' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week9"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week10' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week10"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week11' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week11"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week12' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week12"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week13' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week13"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week14' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week14"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week15' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week15"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week16' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week16"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week17' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week17"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '3d_week18' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "3d_week18"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week7' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week7"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week8' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week8"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week9' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week9"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week10' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week10"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week11' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week11"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week12' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week12"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week13' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week13"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week14' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week14"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week15' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week15"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week16' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week16"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week17' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week17"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = '4d_week18' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "4d_week18"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-maximized' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-maximized"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-nutrition' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-nutrition"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-injury-free' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-injury-free"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-ball-skills' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-ball-skills"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-IQ' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-IQ"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-recruiting' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-recruiting"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-returning' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-returning"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-tackling' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-tackling"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-experience-level' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-experience-level"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-strength-training-level' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-strength-training-level"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mPage Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-alternatives' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-alternatives"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-injuries' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-injuries"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mPage Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-training-drills' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-training-drills"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-stretching' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-stretching"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-dynamic-warmup' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-dynamic-warmup"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-speed-training' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-speed-training"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-footwork' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-footwork"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-drills' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-drills"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mPage Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pages" WHERE "pages"."slug" = 'cornerback-strength-training' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pages" ("access", "created_at", "slug", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["access", 2], ["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["slug", "cornerback-strength-training"], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE "admins"."email" = 'cornerbacktraining@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "admins" WHERE "admins"."email" = 'cornerbacktraining@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "admins" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["created_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "cornerbacktraining@gmail.com"], ["encrypted_password", "$2a$10$6gcTptDcn.HYLL71ugO2f.DEpFHB27x55MTTiJhYo05mq64TJBl4G"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["sign_in_count", 0], ["updated_at", Sat, 23 Jul 2016 07:23:56 CDT -05:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-23 07:24:09 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/landing (139.9ms)
+Compiled admin.css  (0ms)  (pid 20506)
+Warning. Error encountered while saving cache /Users/khadijahcoakley/FS Ventures/repos/cornerback-training/tmp/cache/sass/0120aea9af23efea92f0c848361417f3b9f6baf1/errors.css.scssc: can't dump anonymous class #<Class:0x007ffe041eb8b0>
+
+Compiled errors.css  (2ms)  (pid 20506)
+Warning. Error encountered while saving cache /Users/khadijahcoakley/FS Ventures/repos/cornerback-training/tmp/cache/sass/0120aea9af23efea92f0c848361417f3b9f6baf1/general.css.scssc: can't dump anonymous class #<Class:0x007ffe041eb8b0>
+
+Compiled general.css  (1ms)  (pid 20506)
+Compiled application.css  (11ms)  (pid 20506)
+Compiled jquery.js  (0ms)  (pid 20506)
+Compiled jquery_ujs.js  (0ms)  (pid 20506)
+Compiled registrations.js  (0ms)  (pid 20506)
+Compiled admin.js  (0ms)  (pid 20506)
+Compiled admin/dashboard.js  (445ms)  (pid 20506)
+Compiled admin/pages.js  (129ms)  (pid 20506)
+Compiled admin/sessions.js  (140ms)  (pid 20506)
+Compiled errors.js  (139ms)  (pid 20506)
+Compiled jquery.externalscript.js  (0ms)  (pid 20506)
+Compiled jquery.readyselector.js  (0ms)  (pid 20506)
+Compiled modernizr.js  (0ms)  (pid 20506)
+Compiled application.js  (890ms)  (pid 20506)
+  Rendered layouts/_landing_nav.html.haml (9.0ms)
+Completed 200 OK in 1078.3ms (Views: 1071.0ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /admin.css - 200 OK (1ms)
+
+
+Started GET "/assets/general.css?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /general.css - 200 OK (1ms)
+
+
+Started GET "/assets/errors.css?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /errors.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /jquery.js - 200 OK (6ms)
+
+
+Started GET "/css/motioncss.css" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+
+ActionController::RoutingError (No route matches [GET] "/css/motioncss.css"):
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.22.1) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.7) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.22.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.7) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.22.1) lib/rails/engine.rb:484:in `call'
+  railties (3.2.22.1) lib/rails/application.rb:231:in `call'
+  rack (1.4.7) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.22.1) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.7) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+Processing by ErrorsController#not_found as HTML
+  Rendered errors/not_found.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_landing_nav.html.haml (0.5ms)
+Completed 404 Not Found in 19.9ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/css/color_2.css" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+
+ActionController::RoutingError (No route matches [GET] "/css/color_2.css"):
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.22.1) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.7) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.22.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.7) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.22.1) lib/rails/engine.rb:484:in `call'
+  railties (3.2.22.1) lib/rails/application.rb:231:in `call'
+  rack (1.4.7) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.22.1) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.7) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+Processing by ErrorsController#not_found as HTML
+  Rendered errors/not_found.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_landing_nav.html.haml (0.4ms)
+Completed 404 Not Found in 10.1ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/dashboard.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /admin/dashboard.js - 200 OK (1ms)
+
+
+Started GET "/assets/admin/pages.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /admin/pages.js - 200 OK (1ms)
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /admin.js - 200 OK (3ms)
+
+
+Started GET "/assets/registrations.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /registrations.js - 200 OK (0ms)
+
+
+Started GET "/assets/admin/sessions.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /admin/sessions.js - 200 OK (1ms)
+
+
+Started GET "/assets/errors.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /errors.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.externalscript.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /jquery.externalscript.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.readyselector.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /jquery.readyselector.js - 200 OK (0ms)
+
+
+Started GET "/assets/modernizr.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /modernizr.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+Served asset /application.js - 200 OK (21ms)
+
+
+Started GET "/css/motioncss.css" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+
+ActionController::RoutingError (No route matches [GET] "/css/motioncss.css"):
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.22.1) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.7) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.22.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.7) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.22.1) lib/rails/engine.rb:484:in `call'
+  railties (3.2.22.1) lib/rails/application.rb:231:in `call'
+  rack (1.4.7) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.22.1) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.7) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+Processing by ErrorsController#not_found as HTML
+  Rendered errors/not_found.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_landing_nav.html.haml (0.3ms)
+Completed 404 Not Found in 8.7ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/css/color_2.css" for 127.0.0.1 at 2016-07-23 07:24:11 -0500
+
+ActionController::RoutingError (No route matches [GET] "/css/color_2.css"):
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.22.1) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.7) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.22.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.7) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.22.1) lib/rails/engine.rb:484:in `call'
+  railties (3.2.22.1) lib/rails/application.rb:231:in `call'
+  rack (1.4.7) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.22.1) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.7) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+Processing by ErrorsController#not_found as HTML
+  Rendered errors/not_found.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_landing_nav.html.haml (0.5ms)
+Completed 404 Not Found in 11.4ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/loader.gif" for 127.0.0.1 at 2016-07-23 07:24:12 -0500
+Served asset /loader.gif - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/loader.gif"):
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.22.1) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.7) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.22.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.7) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.22.1) lib/rails/engine.rb:484:in `call'
+  railties (3.2.22.1) lib/rails/application.rb:231:in `call'
+  rack (1.4.7) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.22.1) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.7) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+Processing by ErrorsController#not_found as HTML
+  Rendered errors/not_found.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_landing_nav.html.haml (0.6ms)
+Completed 404 Not Found in 8.7ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/timer.png" for 127.0.0.1 at 2016-07-23 07:24:12 -0500
+Served asset /timer.png - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/timer.png"):
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.22.1) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.22.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.7) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.7) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.22.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.7) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.22.1) lib/action_dispatch/middleware/static.rb:83:in `call'
+  railties (3.2.22.1) lib/rails/engine.rb:484:in `call'
+  railties (3.2.22.1) lib/rails/application.rb:231:in `call'
+  rack (1.4.7) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.22.1) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.7) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/khadijahcoakley/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+Processing by ErrorsController#not_found as HTML
+  Rendered errors/not_found.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_landing_nav.html.haml (0.6ms)
+Completed 404 Not Found in 11.3ms (Views: 11.2ms | ActiveRecord: 0.0ms)

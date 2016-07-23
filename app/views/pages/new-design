@@ -1,0 +1,423 @@
+!!! Strict
+!!! XML
+%html{lang: "en", "xml:lang" => "en", xmlns: "http://www.w3.org/1999/xhtml"}
+  %head
+    %title Week 2
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}/
+
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700", media: "all", rel: "stylesheet", type: "text/css"}/
+    
+    %link{href: "/css/motioncss.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/motioncss-widgets.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/font-awesome.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/rs-settings.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/magnific-popup.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/style.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/responsive.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/animation.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/css/color_5.css", media: "all", rel: "stylesheet", type: "text/css"}/
+
+    %script{src: "/js/g-alert.js", type: "text/javascript"}
+    %script{src: "/js/jquery.carousello.js", type: "text/javascript"}
+    %script{src: "/js/jquery.flexslider.js", type: "text/javascript"}
+    %script{src: "/js/jquery.isotope.js", type: "text/javascript"}
+    %script{src: "/js/jquery.magnific-popup.js", type: "text/javascript"}
+    %script{src: "/js/jquery.parallax.js", type: "text/javascript"}
+    %script{src: "/js/jquery.simpleplaceholder.js", type: "text/javascript"}
+    %script{src: "/js/jquery.smoothScroll.js", type: "text/javascript"}
+    %script{src: "/js/jquery.themepunch.revolution.min.js", type: "text/javascript"}
+    %script{src: "/js/plugins.js", type: "text/javascript"}
+    %script{src: "/js/waypoints.min.js", type: "text/javascript"}
+    %script{src: "/js/w-lang.js", type: "text/javascript"}
+    %script{src: "/js/w-search.js", type: "text/javascript"}
+    %script{src: "/js/w-tabs.js", type: "text/javascript"}
+    %script{src: "/js/w-timeline.js", type: "text/javascript"}
+
+    %link{href: "/css/ilightbox.css", media: "all", rel: "stylesheet", type: "text/css"}/
+    %script{src: "/js/jquery.mousewheel.js", type: "text/javascript"}
+    %script{src: "/js/ilightbox.packed.jss", type: "text/javascript"}
+    %script{async: "", defer: "defer", src: "http://iprodev.com/projects.php?p=ilightbox", type: "text/javascript"}
+
+    :css
+      .w-timeline-item {
+        height: 30px;
+        width: 95px;
+        border-radius: 2px 2px 0 0;
+        overflow: hidden;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        border-bottom: none;
+        border: 1px solid #0289cc;
+        border-bottom: none;
+        background-color: #0289cc;
+      }
+      .w-timeline-item-title {
+        font-size: 13px;
+        line-height: 30px;
+        position: rekative;
+        top: 0;
+        color: #fff;
+        font-weight: bold;
+      }
+      .w-timeline-item, .w-timeline-section-title {
+        box-shadow: none;
+      }
+      .g-pagination-item.active, 
+      .w-timeline-item.active, 
+      .w-timeline-section.active 
+      .w-timeline-section-title {
+        background-color: #fff;
+        color: #0289cc;
+      }
+      .w-timeline-item.active {
+        border: 1px solid #ccc;
+        border-bottom: none;
+      }
+      .w-timeline-item.active
+      .w-timeline-item-title {
+        color: #555;
+      }
+      .w-timeline-item.w-timeline-item-title {
+        color: #fff;
+      }
+      .w-timeline-list:before, 
+      .w-timeline.type_vertical 
+      .w-timeline-section:before {
+        background-color: #eee;
+      }
+
+      .l-content {
+        background: #fff;
+        padding: 50px 75px;
+      }
+
+      .l-canvas {
+      }
+
+
+  / CANVAS
+  .l-canvas.type_wide.headertype_extended
+    .l-canvas-h.l-canvas-h.workout
+
+      .l-main
+        .l-main-h
+
+          .l-submain.for_pagehead.color_alternate
+            .l-submain-h.g-html.i-cf
+              .w-pagehead
+                %h1 Week 4
+                %p 6-Day Schedule
+                / breadcrums
+                .w-pagehead-nav
+                  .w-pagehead-nav-h
+                    %a.w-pagehead-nav-item.type_prev{href: "/pages/6d_week3.html"}
+                      %i.icon-chevron-left
+                    %a.w-pagehead-nav-item.type_next{href: "/pages/cornerback-training-workouts.html"}
+                      %i.icon-th
+                    %a.w-pagehead-nav-item.type_next{href: "/pages/6d_week5.html"}
+                      %i.icon-chevron-right
+
+          .l-submain.workout
+            .l-submain-h.g-html.i-cf
+              .l-content
+                .l-content-h
+                  .w-blogpost-content
+                    .w-blogpost-header
+                      %h5.w-blogpost-title Week 4
+                      %h1.w-blogpost-title Training Wheels Off
+                    .w-blogpost-text
+                      %h6 Summary
+                      %p You should feel noticeable improvements in your strength, body mechanics, and endurance. It's go time! You'll be training for an explosive start and short bursts of speed. Focus on both your technique and on having smooth transitions in your DB drills. Strength training will focus on building muscle for the next 3-4 weeks. Make sure your 12RM is a 12RM. Also make sure you EAT enough, DRINK enough WATER, and get enough protein to support your muscle growth.
+
+
+
+    
+
+    .w-blogpost-text
+      %h4 Cornerback Drills
+      .row
+        %table{style: "width: 100%; text-transform: capitalize;"}
+          %tr
+            %th Exercise
+            %th Reps
+            %th Rest 
+            %th Videos
+          %tr
+            %td
+              %h6 DB Drills
+              %ul
+                / INSERT RENDER PARTIAL workouts_dbDrills
+                =render partial: "workouts_dbDrills"
+            
+            %td 2x
+            %td :30
+            %td
+              %a#mixed_contents.thumbnail{href: "#"}
+                %button.g-btn.type_outline.size_small
+                  %span.icon-expand
+                  Watch Video
+          %tr
+            %td
+              %h6 Combine Agility
+              %ul
+                / INSERT RENDER PARTIAL workouts_combineAgility
+                =render partial: "workouts_combineAgility"
+            %td 4x
+            %td :45
+            %td 
+              %a#combine_agility
+                %button.g-btn.type_outline.size_small
+                  %span.icon-expand
+                  Watch Video
+           
+        
+    
+    / /.container
+    /
+      Le javascript
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    %script{src: "/js/css_browser_selector.min.js", type: "text/javascript"}
+    %script{src: "http://platform.twitter.com/widgets.js", type: "text/javascript"}
+    %script{src: "/js/jquery.js"}
+    %script{async: "", defer: "defer", src: "http://iprodev.com/projects.php?p=ilightbox", type: "text/javascript"}
+    %script{src: "/assets/js/google-code-prettify/prettify.js"}
+    %script{src: "/js/jquery.mousewheel.js"}
+    %script{src: "/js/ilightbox.packed.js"}
+    %script{src: "/js/bootstrap-dropdown.js"}
+    %script{src: "/js/bootstrap-scrollspy.js"}
+    %script{src: "/js/bootstrap-tooltip.js"}
+    %script{src: "/js/bootstrap-popover.js"}
+    %script{src: "/js/bootstrap-collapse.js"}
+    :javascript
+      $(document).ready(function(){
+      
+        window.prettyPrint && prettyPrint();
+        
+        var winWidth = $(window).width(),
+        thumbs = (winWidth > 767) ? true : false;
+        
+        console.log(winWidth);
+
+        
+
+        //Advanced Examples - Mixed & Google Maps
+        $('#mixed_contents').click(function(){
+          $.iLightBox(
+            [
+              {
+                URL: "http://iprodev.com/ilightbox/assets/MV5BMTM1NTMyMDE4OV5BMTFeQW1wNF5BbWU3MDEyNTI0OTU.mp4",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/trailer.jpg",
+                  html5video: {
+                    webm: "http://iprodev.com/ilightbox/assets/MV5BMTM1NTMyMDE4OV5BMTFeQW1wNF5BbWU3MDEyNTI0OTU.webm",
+                    poster: "assets/img/sherlock_holmes/trailer.jpg"
+                  },
+                  width: 1280,
+                  height: 544
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/1.jpg",
+                caption: 'This one fill the screen when you enter fullscreen.',
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/1.jpg",
+                  fullViewPort: 'fill'
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/2.jpg",
+                caption: 'This one fit to the screen when you enter fullscreen.',
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/2.jpg",
+                  fullViewPort: 'fit'
+                }
+              },
+              {
+                URL: "http://www.youtube.com/embed/lNxhpNpnAkk?autohide=1&border=0&egm=0&showinfo=0&showsearch=0",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/mqdefault.jpg",
+                  fullViewPort: 'stretch',
+                  icon: "video",
+                  width: 1280,
+                  height: 720
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/3.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/3.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/4.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/4.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/5.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/5.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/6.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/6.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/7.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/7.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/8.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/8.jpg"
+                }
+              }
+            ],
+            {
+              path: 'horizontal',
+              skin: 'metro-black',
+              styles: {
+                nextOpacity: 0,
+                prevOpacity: 0
+              },
+              controls: {
+                thumbnail: thumbs
+              }
+            }
+          );
+          return false;
+        });
+        
+        
+           //Advanced Examples - Events
+        $('#events_gallery').click(function(){
+          var con = $('#pre_events');
+          $.iLightBox(
+            [
+              {
+                URL: "assets/img/photos/MS-test-day-27898.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27898.jpg"
+                },
+                type: "image",
+                caption: "First Caption. It'll blow your mind."
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27771.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27771.jpg"
+                },
+                type: "image",
+                caption: "Oh yeah, it's that good. See for yourself."
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27845.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27845.jpg"
+                },
+                type: "image",
+                caption: "And lastly, this one. Checkmate."
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27780.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27780.jpg"
+                },
+                type: "image"
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-278081.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-278081.jpg"
+                },
+                type: "image"
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27749.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27749_2.jpg"
+                },
+                type: "image"
+              }
+            ],
+            {
+              path: 'horizontal',
+              overlay: {
+                opacity: .7
+              },
+              controls: {
+                thumbnail: thumbs
+              },
+              callback: {
+                onOpen: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onOpen" fired<br />').scrollTop(10000);
+                },
+                onRender: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onRender" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onShow: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onShow" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onHide: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onHide" fired.<br /><p>-----------------------------------</p>').scrollTop(10000);
+                },
+                onEnterFullScreen: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onEnterFullScreen" fired.<br />').scrollTop(10000);
+                },
+                onExitFullScreen: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onExitFullScreen" fired.<br />').scrollTop(10000);
+                },
+                onBeforeLoad: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onBeforeLoad" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onAfterLoad: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onAfterLoad" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onBeforeChange: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onBeforeChange" fired.<br />').scrollTop(10000);
+                },
+                onAfterChange: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onAfterChange" fired.<br />').scrollTop(10000);
+                }
+              }
+            }
+          );
+          return false;
+        });
+      });
+      
+      $(window).load(function(){
+        $('[data-spy="scroll"]').each(function () {
+          var t = $(this);
+          t.scrollspy();
+          $(window).resize(function(){
+            t.scrollspy('refresh');
+            $(this).trigger('scroll');
+          });
+        });
+      });
+      
+      window.___gcfg = {lang: "en"};
+      (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "https://apis.google.com/js/plusone.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+      })();

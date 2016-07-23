@@ -1,0 +1,21 @@
+.span8
+  %h2
+    Listing Pages
+  = paginate @pages, :theme => 'twitter-bootstrap'
+  %table.table.table-bordered
+    %tr
+      %th
+        Name
+      %th
+        Privacy
+    -@pages.each do |page|
+      %tr
+        %td=page.slug
+        %td=page.access
+        %td
+          -if page.access.public?
+            =link_to "Make Restricted", privatize_admin_page_path(page), method: :put
+          -else
+            =link_to "Make Public", publicize_admin_page_path(page), method: :put
+
+  = paginate @pages, :theme => 'twitter-bootstrap'

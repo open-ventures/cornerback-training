@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>iLightBox &middot; Revolutionary Lightbox Plugin</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Hemn Chawroka" />
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="css/docs.css" rel="stylesheet" />
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet" />
+    <link href="css/demo_ajax_stevejobs.css" rel="stylesheet" />
+    <link href="css/ilightbox.css" rel="stylesheet" />
+    <style>
+
+    /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* Padding below the footer and lighter body text */
+
+
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+		.navbar-wrapper {
+          position: relative;
+		  margin-top: 20px;
+		}
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+    }
+	
+	div.center {
+		width: 450px;
+		height: 260px;
+		text-align: center;
+	}
+	
+	div.center h2 {
+		display: block;
+		margin: 0;
+	}
+	
+	div.center h2 img {
+		display: block;
+		margin: 0 auto;
+		padding: 20px;
+	}
+	
+	.ilightbox-dialogue .ilightbox-container, .ilightbox-dialogue .ilightbox-inner-toolbar {
+		width: auto !important;
+		height: auto !important;
+	}
+	
+	.dialogue {
+		min-width: 200px;
+		max-width: 600px;
+		max-height: 400px;
+		padding: 20px;
+		padding-top: 20px;
+	}
+	
+	.dialogue .btn {
+		float: right;
+		padding-right: 20px;
+		padding-left: 20px;
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+	
+	/* Slidshow button styles */
+	a.slideshow_button {
+		display: none;
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 35px;
+		padding: 14px 30px;
+		margin: auto;
+		cursor: pointer;
+		font-size: 22px;
+		z-index: 100001;
+		width: 140px;
+	}
+	
+	html.win .ilightbox-noscroll, html.win .ilightbox-noscroll .navbar-wrapper {
+		padding-right: 17px;
+	}
+	
+	html.linux .ilightbox-noscroll, html.linux .ilightbox-noscroll .navbar-wrapper {
+		padding-right: 13px;
+	}
+    </style>
+	<!--[if IE 7]>
+    <style>
+	.jumbotron {
+	  background: #47263C url(assets/img/bs-docs-masthead-pattern.png) repeat center center;
+	  filter: none;
+	}
+	
+    .navbar-wrapper {
+      width: 100%;
+    }
+    </style>
+	<![endif]-->
+	
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+                <a id="mixed_contents" href="#" class="thumbnail">
+                  <img src="assets/img/photos/mixed_contents.jpg">
+                </a>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="assets/js/css_browser_selector.min.js"></script>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+	<script type="text/javascript" async defer src="http://iprodev.com/projects.php?p=ilightbox"></script>
+	<script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="src/js/jquery.mousewheel.js"></script>
+    <script src="src/js/ilightbox.packed.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script>
+
+		$(document).ready(function(){
+		
+			window.prettyPrint && prettyPrint();
+			
+			var winWidth = $(window).width(),
+			thumbs = (winWidth > 767) ? true : false;
+			
+			console.log(winWidth);
+
+			
+			//Advanced Examples - Mixed & Google Maps
+			$('#mixed_contents').click(function(){
+				$.iLightBox(
+					[
+						{
+							URL: "http://iprodev.com/ilightbox/assets/MV5BMTM1NTMyMDE4OV5BMTFeQW1wNF5BbWU3MDEyNTI0OTU.mp4",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/trailer.jpg",
+								html5video: {
+									webm: "http://iprodev.com/ilightbox/assets/MV5BMTM1NTMyMDE4OV5BMTFeQW1wNF5BbWU3MDEyNTI0OTU.webm",
+									poster: "assets/img/sherlock_holmes/trailer.jpg"
+								},
+								width: 1280,
+								height: 544
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/1.jpg",
+							caption: 'This one fill the screen when you enter fullscreen.',
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/1.jpg",
+								fullViewPort: 'fill'
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/2.jpg",
+							caption: 'This one fit to the screen when you enter fullscreen.',
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/2.jpg",
+								fullViewPort: 'fit'
+							}
+						},
+						{
+							URL: "http://www.youtube.com/embed/lNxhpNpnAkk?autohide=1&border=0&egm=0&showinfo=0&showsearch=0",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/mqdefault.jpg",
+								fullViewPort: 'stretch',
+								icon: "video",
+								width: 1280,
+								height: 720
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/3.jpg",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/3.jpg"
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/4.jpg",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/4.jpg"
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/5.jpg",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/5.jpg"
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/6.jpg",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/6.jpg"
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/7.jpg",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/7.jpg"
+							}
+						},
+						{
+							URL: "assets/img/sherlock_holmes/8.jpg",
+							options: {
+								thumbnail: "assets/img/thumbnails/sherlock_holmes/8.jpg"
+							}
+						}
+					],
+					{
+						path: 'horizontal',
+						skin: 'metro-black',
+						styles: {
+							nextOpacity: 0,
+							prevOpacity: 0
+						},
+						controls: {
+							thumbnail: thumbs
+						}
+					}
+				);
+				return false;
+			});
+			
+		});
+		
+		$(window).load(function(){
+			$('[data-spy="scroll"]').each(function () {
+				var t = $(this);
+				t.scrollspy();
+				$(window).resize(function(){
+					t.scrollspy('refresh');
+					$(this).trigger('scroll');
+				});
+			});
+		});
+		
+		window.___gcfg = {lang: "en"};
+		(function() {
+			var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+			po.src = "https://apis.google.com/js/plusone.js";
+			var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+		})();
+		
+    </script>
+  </body>
+</html>

@@ -1,0 +1,688 @@
+%link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Lustria", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700italic,700,400italic", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Lato:100,300,400,100italic,300italic", media: "all", rel: "stylesheet", type: "text/css"}/
+
+%link{href: "/css/style.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/rs-settings.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/motioncss.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/motioncss-widgets.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/font-awesome.css", media: "all", rel: "stylesheet", type: "text/css"}/
+
+%link{href: "/css/magnific-popup.css", media: "all", rel: "stylesheet", type: "text/css"}/
+
+
+%link{href: "/css/animation.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/color_2.css", media: "all", rel: "stylesheet", type: "text/css"}/
+
+%script{src: "/js/jquery-1.9.1.js", type: "text/javascript"}
+%script{src: "/js/g-alert.js", type: "text/javascript"}
+%script{src: "/js/jquery.carousello.js", type: "text/javascript"}
+%script{src: "/js/jquery.flexslider.js", type: "text/javascript"}
+%script{src: "/js/jquery.isotope.js", type: "text/javascript"}
+%script{src: "/js/jquery.magnific-popup.js", type: "text/javascript"}
+%script{src: "/js/jquery.parallax.js", type: "text/javascript"}
+%script{src: "/js/jquery.simpleplaceholder.js", type: "text/javascript"}
+%script{src: "/js/jquery.smoothScroll.js", type: "text/javascript"}
+%script{src: "/js/jquery.themepunch.revolution.min.js", type: "text/javascript"}
+%script{src: "/js/plugins.js", type: "text/javascript"}
+%script{src: "/js/waypoints.min.js", type: "text/javascript"}
+%script{src: "/js/w-lang.js", type: "text/javascript"}
+%script{src: "/js/w-search.js", type: "text/javascript"}
+%script{src: "/js/w-tabs.js", type: "text/javascript"}
+%script{src: "/js/w-timeline.js", type: "text/javascript"}
+:css
+  /*************************** BODY ***************************/
+
+  /* Body Background color */
+  #body { 
+    background-color: #000;
+    font-family: 'lato';
+    }
+  body, p, td {
+  font: 14px/24px 'Open Sans', sans-serif;
+  word-spacing: 1px;
+  }
+
+  .l-main-h.workout {
+  padding-top: 0;
+  }
+
+  
+
+    
+    
+  /*************************** ALTERNATE CONTENT ***************************/
+
+  /* Text Color */
+  .color_alternate,
+  .color_alternate .g-btn.type_default,
+  .color_alternate .g-btn.type_outline,
+  .color_alternate .g-pagination-item,
+  .color_alternate .w-filters-item-link,
+  .color_alternate .w-clients-nav,
+  .color_alternate .w-clients-nav:hover,
+  .color_alternate .w-nav-list.layout_ver .w-nav-anchor,
+  .color_alternate .w-pagehead h1,
+  .color_alternate .w-socials-item-link,
+  .color_alternate .w-tags-item-link,
+  .color_alternate .widget.widget_archive ul li a,
+  .color_alternate .widget.widget_categories ul li a,
+  .color_alternate .widget.widget_nav_menu .menu-item a {
+    color: #ccc;
+    }
+
+  .color_alternate .g-btn.type_primary,
+  .color_alternate input[type="submit"],
+  .color_alternate .g-pagination-item.active,
+  .color_alternate .w-actionbox.color_primary,
+  .color_alternate .l-main .w-contacts-item i,
+  .color_alternate .w-iconbox-icon,
+  .color_alternate .w-pricing-item.type_featured .w-pricing-item-title,
+  .color_alternate .w-team-member-links-item:hover,
+  .color_alternate .w-timeline-item.active,
+  .color_alternate .w-timeline-section.active .w-timeline-section-title {
+    background-color: #666;
+    }
+
+
+  .color_alternate .g-btn.type_secondary,
+  .color_alternate .w-iconbox:hover .w-iconbox-icon,
+  .color_alternate .w-pricing-item-title,
+  .color_alternate .w-tags.layout_block .w-tags-item-link:hover {
+    background-color: #b39500;
+    }
+
+    .w-tabs.layout_accordion .w-tabs-section.active .w-tabs-section-title, .widget.widget_nav_menu .menu-item.current-menu-item > a, .widget.widget_nav_menu .menu-item.current-menu-ancestor > a {
+    color: inherit;
+    }
+
+    .l-sidebar .widget {
+    margin-bottom: 45px;
+    border-right: 1px solid #111;
+    padding-right: 15px;
+    }
+    
+    .w-tabs.layout_accordion .w-tabs-section-title-text, .w-tabs-item-title {
+    font-size: 14px/24px;
+    font-family: 'Open Sans';
+    }
+
+    .w-tabs-item-icon, .w-tabs-section-title-icon {
+    font-size: 18px;
+    top: 24px;
+    left: 20px;
+    }
+
+    .w-tabs.layout_accordion .w-tabs-section-title-control {
+    top: 25px;
+    right: 20px;
+    font-size: 20px;
+    line-height: 22px;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    transition: transform 0.25s ease;
+    }
+
+    .l-subheader.at_middle .w-nav-anchor.level_1:after {
+    background-color: transparent;
+    }
+
+    .color_alternate {
+    color: #000;
+    }
+
+    .color_alternate h1, .color_alternate h2, .color_alternate h4, .color_alternate h5, .color_alternate h6 {
+    color: #000;
+    }
+
+    .l-sidebar .widget {
+    margin-bottom: 45px;
+    border-right: none;
+    padding-right: 0;
+    }
+
+
+    
+
+
+
+
+
+    
+  /*************************** FOOTER ***************************/
+
+
+.l-canvas.type_wide.headertype_extended
+  .l-canvas-h.l-canvas-h.workout
+
+    .l-main
+      .l-main-h.workout
+
+        .l-submain.color_primary.type_fullwidth.border_none{style: "background-color: transparent;"}
+          .l-submain-h.g-html
+
+            .g-cols
+              .full-width
+                .fullwidthbanner-container{style: "background-color: transparent;"}
+                  .fullwidthbanner{style: "background-color: transparent;"}
+                    %ul
+                      %li{"data-transition" => "fade"}
+                        %img{alt: "", src: "/img/index_header.jpg"}/
+                        .caption.astra_white_heading_3.sft{"data-easing" => "easeInOutExpo", "data-speed" => "600", "data-start" => "1000", "data-x" => "center", "data-y" => "130"} BECOME A SHUTDOWN CORNER
+                        .caption.astra_white_heading_5.sft{"data-easing" => "easeInOutExpo", "data-speed" => "600", "data-start" => "1000", "data-x" => "center", "data-y" => "175"} &#8212; IN &#8212;
+                        .caption.astra_white_heading_1.sft{"data-easing" => "easeInOutExpo", "data-speed" => "600", "data-start" => "1000", "data-x" => "center", "data-y" => "220"} 18-WEEKS 
+                        .caption.astra_white_heading_2.sft{"data-easing" => "easeInOutExpo", "data-speed" => "600", "data-start" => "1000", "data-x" => "center", "data-y" => "310"} 
+                          .g-cols
+                            .one-third
+                              I. Speed training
+                              %ul 
+                                %li Develop explosive starts
+                                %li Train for rapid acceleration
+                                %li Increase your top-end speed
+                                %li Build speed endurance
+                                %li Win on deep routes
+                                %li Reaction faster on routes
+
+                            .one-third
+                              II. strength training
+                              %ul 
+                                %li Develop position-specific strength
+                                %li Train position-specific power
+                                %li Increase size and muscle mass
+                                %li Train smarter using periodization
+                                %li Increase your flexibility
+                                %li Stay healthy and prevent injuries 
+                                
+
+                            .one-third
+                              III. footwork & agility
+                              %ul 
+                                %li Train for dominant reaction speed
+                                %li Develop cat-quick footwork
+                                %li Get fluid hips
+                                %li Have unshakeable agility
+                                %li Be quick, smooth and automatic
+                                %li Make the open field tackle
+
+                        
+        .l-submain.color_alternate{style: "background-image: url(/img/bg_football-field.jpg); background: #000; padding-top:30px; padding-bottom:30px;"}
+          .l-submain-h.g-html
+            .w-actionbox.controls_aside.color_alternate{style: "background-image: url('/img/parallax3.png'); padding: 20px 50px;"}
+              .w-actionbox-h
+                .w-actionbox-text
+                  %h3 Buy it now and <u>save 25%</u>, or try it out.
+                .w-actionbox-controls{style: "text-align: center;"}
+                  %a.w-actionbox-button.g-btn.size_big.type_primary{href: "/seven-day-free-trial"}
+                    %span Free 6-Week Trial
+                  = link_to "BUY it now", "/purchase-cornerback-training-plan", class: "w-actionbox-button g-btn size_big type_secondary"
+              
+
+    #parallax_section_2.l-submain.color_alternate{style: "background-image: url('/img/story_bg.jpg'); background: #f5f5f5; padding-bottom: 75px; padding-top: 75px;"}
+      .l-submain-h.g-html.i-cf
+        .g-cols
+          .one-half
+            .l-content{style: "float: left;"}
+              .l-content-h.story
+                %h2 Let Me Tell You A Story...
+                %p Hi, my name is Dennis Bishop, creator of  The Shutdown Cornerback Training Program and GreatCornerback.com. I created this site because on my journey to become a professional cornerback, I realized, sadly, that most cornerbacks out there, even on the professional level, were clueless on how to train to maximize their performance.
+                %p Fresh out of college, I was in the position of pursing pro football through the back door. I went to at least a dozen open tryouts and pro combines all over the country, where the odds of getting signed are about 300 to 1.
+                %p Unfortunately, I didn't get the results I wanted. I was good, but I didn't have the WOW factor that most scouts and coaches are looking for.
+                %p So, I decided to drastically increase my talent. I got a job working as a trainer, and learned everything I could about sports performance, dieting, and supplements..
+                %p I then used the principles I learned, combined with 20 years of football experience, to create my own beastly training program and hit it hard:
+
+          .one-half
+            %img{alt: "", src: "/img/dennis_stretching.jpg"}/
+            
+            %h4 MY RESULTS...
+            %ul
+              %li From 4.47 to 4.35 in the 40...
+              %li From 9'9" to 10'7" in the broad jump...
+              %li 33 to 37-inch vertical leap...
+              %li 10 reps to 17 reps of 225-lb bench-press...
+              %li 225-lb 10RM (Repetition Maximum) Squat to 405-lb 10RM squat...
+              %li 3.9-sec shuttle (already fast) to 3.8sec shuttle
+              %li 185lbs @ 12% bodyfat to 195lbs @ 10% bodyfat
+
+            %h3{style: "color: #ccaa00; font-size: 160%; margin-bottom: 10px;"} The Secret to Cornerback Performance
+            %p But those were just my combine measurables...On the field? I swear, I had never felt so powerful in all my years as an athlete! My breaks were so easy and fluid, my technique was crisp, and I didn't even have to think about it...My body just reacted. 
+
+            %p At the tryouts, the guys I competed against, some from NFL camps, others from other arena teams, were breakfast to me. They couldn't even complete short routes on me.... In 1-on-1s! I was a totally different athlete. It was almost too easy. I got offered by 3 pro arena teams, and signed with my choice. 
+
+            %p When I asked guys what they did to train, most players were not using the system that I used. Most of them were, and still are...Jogging miles for their “endurance,” instead of training for speed and speed endurance.
+
+
+            %h4 STOP WASTING TIME...
+            %ul
+              %li Using cookie cutter, general strength programs NOT designed specifically for cornerbacks
+              %li Lifting for size only instead of strength and power, because they didn't want to go “too heavy.”
+              %li Performing general agility drills, and NOT focusing drills that help them become a better cornerback
+              %li NOT training their flexibility to increase their speed
+              %li NOT training with consistency and purpose, toward defined, measurable GOALS
+              %li Basically, WASTING their EFFORT and their TIME
+
+
+            
+          %a.g-btn.type_default{"contact.html" => "", style: "margin-top: 10px; href="}
+            %span 100% MONEY-BACK GUARANTEE, GIVE IT A TRY...
+        .l-sidebar.at_right{style: "display: inherit; color: #666;"}
+          .l-sidebar-h
+            
+            .widget
+              
+    #parallax_section.l-submain.color_primary.with_parallax{style: "background-image: url(/img/bg_cornerback-main.jpg);"}
+      .l-submain-h.g-html
+        %h2{style: "text-align: center;"}
+          %br/
+        %p{style: "text-align: center;"}
+    :javascript
+      jQuery(window).load(function(){ jQuery('#parallax_section').parallax('50%', '0.4'); });
+    .l-submain{style: "background-image: url(/img/bg_one-on-one.jpg); padding-bottom: 75px; padding-top: 75px; border-top: none;"}
+      .l-submain-h.g-html
+        %h1{style: "text-align: center;"} Transform Your Performance
+        %p{style: "color: #fff; text-align: center; font-size: 130%; word-spacing: 1px;"} Talent is Important. Training is Everything!
+        .g-hr.type_invisible
+        .g-cols
+          .one-third.animate_afl
+            .wpb_single_image.align_center
+              %img{alt: "", src: "/img/thumb_db-drills-2.jpg"}/
+              %h3 Better Technique...
+              %p{style: "color: #fff;"} Train for quickness, speed, and explosiveness...
+              %ul{style: "line-height: 20px; text-align: left; color: #fff;"}
+                %li Increase Your Route Reaction Speed
+                %li Develop Cat-Quick Footwork
+                %li Develop Fluid Hips
+                %li Develop Unshakeable Agility
+                %li Jump the route.
+                %li Make it quick, smooth, and automatic.
+                %li Open, flip, or spin, and get to the ball.
+                %li Make open field tackles easy
+                %li Cover double moves without thinking.
+          .one-third.animate_afb
+            .wpb_single_image.align_center
+              %img{alt: "", src: "/img/thumb_speed-2.jpg"}/
+              %h3 Get Faster...
+              %p{style: "color: #fff;"} Master cornerback position skills and technique...
+              %ul{style: "line-height: 20px; text-align: left; color: #fff;"}
+                %li Develop an Explosive Start
+                %li Achieve Rapid Acceleration
+                %li Increase Your Max Speed
+                %li Build Your Speed Endurance
+                %li Explode out of your breaks
+                %li Beat receivers to the ball
+                %li Win on deep routes
+                %li Take picks, punts, and kicks to the house!
+          .one-third.animate_afr
+            .wpb_single_image.align_center
+              %img{alt: "", src: "/img/thumb_strength.jpg"}/
+              %h3 More Explosive...
+              %p{style: "color: #fff;"} Increase your strength, power and peformance...
+              %ul{style: "line-height: 20px; text-align: left; color: #fff;"}
+                %li Anatomical adaptation
+                %li Pre-hab and injury prevention
+                %li Increase Your Muscle Mass
+                %li Maximize 'Cornerback-Specific' strength
+                %li Maximize 'Cornerback-Specific' Power
+                %li Prepare your body to train
+                %li Make sure you stay injury-free
+                %li Pack some muscle onto your frame
+                %li Be a play-making, game-changing cornerback.
+    #parallax_section.l-submain.color_primary.with_parallax{style: "background-image: url(/img/slides/db_stance.jpg);"}
+      .l-submain-h.g-html
+        %h2{style: "text-align: center;"}
+          %br/
+        %p{style: "text-align: center;"}
+    :javascript
+      jQuery(window).load(function(){ jQuery('#parallax_section').parallax('50%', '0.4'); });
+    .l-submain{style: "background: url(/img/bg_lone-corner.jpg); padding-bottom: 75px; padding-top: 75px;"}
+      .l-submain-h.g-html.i-cf
+        %h1{style: "text-align: center;"}
+          Most Cornerbacks are
+          %u NOT
+          training for Domination
+        %p{style: "color: #888; text-align: center; word-spacing: 2px; font-size: 120%;"} Be Different. Be Great.
+        .g-hr.type_short
+          %span.g-hr-h
+            %i.icon-arrow-down
+        .g-cols
+          .one-half
+            .w-iconbox.icon_left
+              .w-iconbox-h
+                .w-iconbox-icon
+                  %i.icon-bullhorn
+                .w-iconbox-text
+                  %h3.w-iconbox-text-title Need a Personal Plan?
+                  .w-iconbox-text-description
+                    %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.
+            .g-hr.type_invisible
+              %span.g-hr-h
+                %i.icon-star
+            .w-iconbox.icon_left
+              .w-iconbox-h
+                .w-iconbox-icon
+                  %i.icon-money
+                .w-iconbox-text
+                  %h3.w-iconbox-text-title Flexible Discount System
+                  .w-iconbox-text-description
+                    %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.
+            .g-hr.type_invisible
+              %span.g-hr-h
+                %i.icon-star
+            .w-iconbox.icon_left
+              .w-iconbox-h
+                .w-iconbox-icon
+                  %i.icon-comments-alt
+                .w-iconbox-text
+                  %h3.w-iconbox-text-title Have Questions?
+                  .w-iconbox-text-description
+                    %p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.
+          .one-half
+            .w-tabs.layout_accordion.type_toggle
+              .w-tabs-h
+                .w-tabs-section.with_icon
+                  .w-tabs-section-title
+                    %span.w-tabs-section-title-icon.icon-question-sign
+                    %span.w-tabs-section-title-text What is it positon-specific training and why is it critical to my success as an athlete?
+                    %span.w-tabs-section-title-control
+                      %i.icon-angle-down
+                  .w-tabs-section-content
+                    .w-tabs-section-content-h
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis.
+                .w-tabs-section.with_icon
+                  .w-tabs-section-title
+                    %span.w-tabs-section-title-icon.icon-question-sign
+                    %span.w-tabs-section-title-text What is Periodization and how has it transformed sports performance training ?
+                    %span.w-tabs-section-title-control
+                      %i.icon-angle-down
+                  .w-tabs-section-content
+                    .w-tabs-section-content-h
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.
+                      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolore eveniet quis, quos tempore temporibus ut.
+                .w-tabs-section.with_icon
+                  .w-tabs-section-title
+                    %span.w-tabs-section-title-icon.icon-question-sign
+                    %span.w-tabs-section-title-text How will flexibility transform my athletic potential as well as significantly reduce my risk of injury ?
+                    %span.w-tabs-section-title-control
+                      %i.icon-angle-down
+                  .w-tabs-section-content
+                    .w-tabs-section-content-h
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis.
+                .w-tabs-section.with_icon
+                  .w-tabs-section-title
+                    %span.w-tabs-section-title-icon.icon-question-sign
+                    %span.w-tabs-section-title-text I'm not the most athletically gifted athlete, will this program still work for me ?
+                    %span.w-tabs-section-title-control
+                      %i.icon-angle-down
+                  .w-tabs-section-content
+                    .w-tabs-section-content-h
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis.
+                .w-tabs-section.with_icon
+                  .w-tabs-section-title
+                    %span.w-tabs-section-title-icon.icon-question-sign
+                    %span.w-tabs-section-title-text I'm really focesd on getting faster. How much faster will I get with this program ?
+                    %span.w-tabs-section-title-control
+                      %i.icon-angle-down
+                  .w-tabs-section-content
+                    .w-tabs-section-content-h
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo.
+                      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolore eveniet quis, quos tempore temporibus ut.
+                .w-tabs-section.with_icon
+                  .w-tabs-section-title
+                    %span.w-tabs-section-title-icon.icon-question-sign
+                    %span.w-tabs-section-title-text What training equipment is used in this program? Will I have to invest in equipment ?
+                    %span.w-tabs-section-title-control
+                      %i.icon-angle-down
+                  .w-tabs-section-content
+                    .w-tabs-section-content-h
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis.
+    #parallax_section.l-submain.color_primary.with_parallax{style: "background-image: url(/img/slides/db_line-up.jpg);"}
+      .l-submain-h.g-html
+        %h2{style: "text-align: center;"}
+          %br/
+        %p{style: "text-align: center;"}
+    :javascript
+      jQuery(window).load(function(){ jQuery('#parallax_section').parallax('50%', '0.4'); });
+    .l-submain{style: "background: #eee; border-top-color: transparent; background: url(/img/bg_big-hit.jpg);"}
+      .l-submain-h.g-html.i-cf
+        %h1{style: "text-align: center; color: #333"} Stop trying to get better...TRANSFORM!
+        %p{style: "color: #333; text-align: center; font-size: 120%; word-spacing: 2px;"} Don't talk about, Be about it. Let's get it.
+        .g-hr.type_short{style: "margin-bottom: 100px;"}
+          %span.g-hr-h
+            %i.icon-arrow-down
+        .g-cols
+          .one-half
+            %h2{style: "color: #333;"} Position-specific training
+            %p{style: "color: #333;"} Every training session builds on last and is designed to progressively transform you into a technically sound, stronger, more explosive cornerback.of layout.
+            %ul{style: "line-height: 20px; text-align: left; color: #333;"}
+              %li Basic and advanced cornerback drills
+              %li Speed, footwork, and agility drills
+              %li Muscle-building and Max Strength exercises
+              %li Maximum Power training exercises
+            .g-hr.type_invisible.size_small
+              %span.g-hr-h
+                %i.icon-star
+            %a.g-btn.type_default{href: "features.html"}
+              %span
+                %i.icon-laptop>
+                See Periodization Cycles
+          .one-half.animate_afr
+            .wpb_single_image.align_center
+              %img{alt: "", src: "/img/cbt_screen_workout_1.jpg"}/
+    .l-submain{style: "background: #eee; background: url(/img/db_pick-2.jpg);"}
+      .l-submain-h.g-html.i-cf
+        .g-cols
+          .one-half.animate_afr
+            .wpb_single_image.align_center
+              %img{alt: "", src: "/img/cbt_screen_drills_toc.jpg"}/
+          .one-half
+            %h2{style: "color: #333;"}
+              All areas of training
+              %u covered
+            %p{style: "color: #333;"} We have left no stone unturned. Your program will be complete:of layout.
+            %ul{style: "line-height: 20px; text-align: left; color: #333;"}
+              %li Strength, skills, flexibility, and mobility
+              %li Setting Goals
+              %li Diet and nutrition
+              %li Recovery
+              %li Injury Prevention
+            .g-hr.type_invisible.size_small
+              %span.g-hr-h
+                %i.icon-star
+    .l-submain{style: "background: #eee; background: url(/img/db_practice.jpg);"}
+      .l-submain-h.g-html.i-cf
+        .g-cols
+          .one-half
+            %h2{style: "color: #333;"} Detailed, easy-to-follow workouts
+            %p{style: "color: #333;"} Every exercises in your program is illustrated, demonstated, or explained.
+            %ul{style: "line-height: 20px; text-align: left; color: #333;"}
+              %li Consistent workout format
+              %li Every component of workout sessions are explained in detail
+            .g-hr.type_invisible.size_small
+              %span.g-hr-h
+                %i.icon-star
+            %a.g-btn.type_default{href: "features.html"}
+              %span
+                %i.icon-laptop>
+                View Sample Workout
+          .one-half.animate_afr
+            .wpb_single_image.align_center
+              %img{alt: "", src: "/img/cbt_screen_workout_1.jpg"}/
+    .l-submain{style: "background: #eee; background: url(/img/db_one-on-one.jpg);"}
+      .l-submain-h.g-html.i-cf
+        .g-cols
+          .one-half.animate_afr
+            .wpb_single_image.align_center
+              %img{alt: "", src: "/img/cbt_screen_workout_toc.jpg"}/
+          .one-half
+            %h2{style: "color: #333;"} Designed to MAXIMIZE potential
+            %p{style: "color: #333;"} I don't want you to get better... I want you to transform. Everything in your program is meant to transform you into a BEAST of a cornerbackof layout.
+            %ul{style: "line-height: 20px; text-align: left; color: #333;"}
+              %li Be a ball hawk
+              %li Be faster than your competition
+              %li Be stronger than you thought possible
+              %li Be more explosive when you break and hit
+              %li Make plays like its second nature
+            .g-hr.type_invisible.size_small
+              %span.g-hr-h
+                %i.icon-star
+    #parallax_section.l-submain.color_primary.with_parallax{style: "background-image: url(/img/slides/bg_cornerback-main.jpg);"}
+      .l-submain-h.g-html
+        %h2{style: "text-align: center;"}
+          %br/
+        %p{style: "text-align: center;"}
+    :javascript
+      jQuery(window).load(function(){ jQuery('#parallax_section').parallax('50%', '0.4'); });
+    .l-submain{style: "background: #000; background: url(/img/db_pick.jpg)"}
+      .l-submain-h.g-html.i-cf
+        %h1{style: "text-align: center;"} No Excuses. Get Results or Get a Refund.
+        %p{style: "color: #333; text-align: center; font-size: 120%; word-spacing: 3px; color: #888;"} 100% Money Back Guarantee
+        .g-hr.type_short
+          %span.g-hr-h
+            %i.icon-arrow-down
+        .w-pricing
+          .w-pricing-h
+            .w-pricing-item
+              .w-pricing-item-h{style: "background: #eee; color: #333;"}
+                .w-pricing-item-header
+                  .w-pricing-item-title 6-Week Free Trial
+                  .w-pricing-item-price{style: "background: #fff; color: #333;"}
+                    $0
+                    %small per month
+                %ul.w-pricing-item-features{style: "background: #eee; line-height: 16px;"}
+                  %li.w-pricing-item-feature First 6-Week Phase
+                  %li.w-pricing-item-feature 50 mb Disk space
+                  %li.w-pricing-item-feature 10 Gig Data transfer
+                .w-pricing-item-footer
+                  = link_to "6-WEEK FREE TRIAL", "/seven-day-free-trial", class: "w-pricing-item-footer-button g-btn type_primary"
+            .w-pricing-item.type_featured
+              .w-pricing-item-h{style: "background: #eee; color: #333;"}
+                .w-pricing-item-header
+                  .w-pricing-item-title Complete 18-Week Program
+                  .w-pricing-item-price{style: "background: #fff; color: #333;"}
+                    $74.99
+                    %small per month
+                %ul.w-pricing-item-features{style: "background: #eee; line-height: 16px;"}
+                  %li.w-pricing-item-feature Three 6-Week Training Phases
+                  %li.w-pricing-item-feature Complete Cornerback Bible Guide
+                  %li.w-pricing-item-feature 50 Gig Data transfer
+                  %li.w-pricing-item-feature Business Admin Panel
+                  %li.w-pricing-item-feature Standard Support
+                  %li.w-pricing-item-feature Three 6-Week Training Phases
+                  %li.w-pricing-item-feature Complete Cornerback Bible Guide
+                  %li.w-pricing-item-feature 50 Gig Data transfer
+                  %li.w-pricing-item-feature Business Admin Panel
+                  %li.w-pricing-item-feature Standard Support
+                .w-pricing-item-footer
+                  = link_to "BUY THE COMPLETE PROGRAM", "/purchase-cornerback-training-plan", class: "w-pricing-item-footer-button g-btn type_primary"
+/ /MAIN
+/ /CANVAS
+/ FOOTER
+.l-footer.type_normal
+.l-footer-h
+/ subfooter: top
+.l-subfooter.at_top
+  .l-subfooter-h.g-cols.cols_fluid
+    .one-third
+      .widget
+        %h4 TrainforFootball.com
+        %p
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit
+          = succeed "." do
+            %a{href: "#"} amet fermentum
+        %p Cras mattis consectetur purus sit amet fermentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.
+    .one-third
+      .widget
+        %h4 Latest News
+        .w-bloglist.date_atbottom
+          .w-bloglist-list
+            .w-bloglist-entry
+              %a.w-bloglist-entry-link{href: "blog-post.html"} Another Single Interesting Post
+              %span.w-bloglist-entry-date March 27, 2013
+            .w-bloglist-entry
+              %a.w-bloglist-entry-link{href: "blog-post.html"} This is Just a Single Clean Post with Long Interesting Title
+              %span.w-bloglist-entry-date March 08, 2013
+            .w-bloglist-entry
+              %a.w-bloglist-entry-link{href: "blog-post.html"} This is a Single Clean Post
+              %span.w-bloglist-entry-date March 06, 2013
+    .one-third
+      .widget
+        %h4 Contact Info
+        .w-contacts
+          .w-contacts-h
+            .w-contacts-list
+              .w-contacts-item.for_address
+                %i.icon-location
+                %span.w-contacts-item-name Address:
+                %span.w-contacts-item-value 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States
+              .w-contacts-item.for_phone
+                %i.icon-mobile
+                %span.w-contacts-item-name Phone:
+                %span.w-contacts-item-value +321 123 4567
+              .w-contacts-item.for_email
+                %i.icon-mail
+                %span.w-contacts-item-name Email:
+                %span.w-contacts-item-value
+                  %a{href: "mailto:info@example.com"} info@example.com
+      .widget
+        .w-socials.size_normal
+          .w-socials-h
+            .w-socials-list
+              .w-socials-item.facebook
+                %a.w-socials-item-link{href: "javascript:void(0);", target: "_blank"}
+                  %i.icon-facebook
+                .w-socials-item-popup
+                  .w-socials-item-popup-h
+                    %span.w-socials-item-popup-text Facebook
+              .w-socials-item.twitter
+                %a.w-socials-item-link{href: "javascript:void(0);", target: "_blank"}
+                  %i.icon-twitter
+                .w-socials-item-popup
+                  .w-socials-item-popup-h
+                    %span.w-socials-item-popup-text Twitter
+              .w-socials-item.gplus
+                %a.w-socials-item-link{href: "javascript:void(0);", target: "_blank"}
+                  %i.icon-google-plus
+                .w-socials-item-popup
+                  .w-socials-item-popup-h
+                    %span.w-socials-item-popup-text Google
+              .w-socials-item.linkedin
+                %a.w-socials-item-link{href: "javascript:void(0);", target: "_blank"}
+                  %i.icon-linkedin
+                .w-socials-item-popup
+                  .w-socials-item-popup-h
+                    %span.w-socials-item-popup-text LinkedIn
+              .w-socials-item.tumblr
+                %a.w-socials-item-link{href: "javascript:void(0);", target: "_blank"}
+                  %i.icon-tumblr
+                .w-socials-item-popup
+                  .w-socials-item-popup-h
+                    %span.w-socials-item-popup-text Tumblr
+              .w-socials-item.dribbble
+                %a.w-socials-item-link{href: "javascript:void(0);", target: "_blank"}
+                  %i.icon-dribbble
+                .w-socials-item-popup
+                  .w-socials-item-popup-h
+                    %span.w-socials-item-popup-text Dribbble
+      / subfooter: bottom
+      .l-subfooter.at_bottom
+        .l-subfooter-h.i-cf
+          .w-copyright
+            © 2013 All rights reserved.
+            %a{href: ""} TrainForFootball.com
+          / NAV
+          %nav.w-nav
+            .w-nav-h
+              .w-nav-list.layout_hor.width_auto.float_right.level_1
+                .w-nav-list-h
+                  .w-nav-item.level_1
+                    .w-nav-item-h
+                      %a.w-nav-anchor.level_1{href: "index.html"} Privary Policy
+                  .w-nav-item.level_1
+                    .w-nav-item-h
+                      %a.w-nav-anchor.level_1{href: "about.html"} Terms & Agreements
+  / /FOOTER
+  %a.w-toplink{href: "#"}
+    %i.icon-angle-up

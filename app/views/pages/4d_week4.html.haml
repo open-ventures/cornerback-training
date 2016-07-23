@@ -1,0 +1,554 @@
+#page
+  .container.visible-phone
+    %p.right
+      %a.btn.btn-primary.scrollto{:href => "#secondary-nav"}
+        Page Menu &nbsp;
+        %i.icon-align-justify
+  .hero-unit
+    .container
+      %h6 Week 4
+      %ul.breadcrumb
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#mon"} M
+          %span.divider /
+        %li
+          %a{"data-toggle" => "tab", :href => "#tue"} Tu
+          %span.divider /
+        %li
+          %a{"data-toggle" => "tab", :href => "#wed"} W
+          %span.divider /
+        %li
+          %a{"data-toggle" => "tab", :href => "#thu"} Th
+          %span.divider /
+        %li
+          %a{"data-toggle" => "tab", :href => "#fri"} F
+          %span.divider /
+        %li
+          %a{"data-toggle" => "tab", :href => "#sat"} Sa
+      %ul.pager.pull-right
+        %li
+          %a{:href => "6d_week3.html"} &larr; Week 3
+        %li
+          %a{:href => "6d_week5.html"} Week 5 &rarr;
+    / close container
+  / close hero-unit
+  #main-content.container.clearfix
+    / begin main content
+    .row-fluid.sidebar-right
+      / begin row-fluid
+      .span9.primary-column
+        / begin primary content
+        #myTabContent.tab-content
+          / begin myTabContent
+          / **************** BEGIN MONDAY ****************
+          #mon.tab-pane.fade.in.active
+            / Begin tab-pane Mon
+            %h2 MONDAY
+            %ul.nav.nav-pills
+              %li.active
+                %a{:href => "#"} Speed training
+              %li.active
+                %a{:href => "#"} lowerbody strength (20RM)
+            .groove-border-eee
+            %h4 WORKOUT I:  SPEED TRAINING
+            / INSERT RENDER PARTIAL speedTraining_warmUp
+            =render partial: "speedTraining_warmUp"
+            %hr/
+            %span.label.label-inverse WORKOUT
+            %h5 Bursts + Stadiums/Bleachers
+            .row-fluid.exercises.main-workout
+              .span6
+                %h5 20-yard Bursts, 10x, 60-yard walk for rest
+                %ul
+                  / INSERT RENDER PARTIAL notes_20ydBursts
+                  =render partial: "notes_20ydBursts"
+              .span6
+                %h5 Stadiums/Bleachers, 5x, 45sec rest
+                %ul
+                  / INSERT RENDER PARTIAL notes_stadiumsBleachers
+                  =render partial: "notes_stadiumsBleachers"
+            %hr/
+            / INSERT RENDER PARTIAL speedTraining_coolDown
+            =render partial: "speedTraining_coolDown"
+            .wo_break Minimum 1-hour training Break
+            %h4 WORKOUT II:  LOWERBODY STRENGTH TRAINING
+            / INSERT RENDER PARTIAL lowerbodyStrength_warmUp
+            =render partial: "lowerbodyStrength_warmUp"
+            %hr/
+            .row-fluid
+              %span.label.label-inverse WORKOUT
+              %h5 Lowerbody Strength Training
+              .row-fluid
+                .span12
+                  %h5 Weights: 12RM, 90sec rest/set
+                  %table.table.table-striped
+                    %tr
+                      %th Exercise
+                      %th Intensity
+                      %th Tempo
+                      %th Volume
+                      %th Rest
+                    %tr
+                      %td
+                        %a{:href => "#"} lunge circuit
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} deadlifts (dumbbell)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} knee raises (cable)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} single-leg hip extension
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} hip adductors (cable)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} hip abductors (cable)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} single-leg calf raises
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr.super_set_row
+                      %td
+                        %span.super_set superset:
+                        %a.ss_ex{:href => "#"} ab wheel
+                        %br/
+                        %a.ss_ex{:href => "#"} plate twists
+                      %td 12RM
+                      %td
+                      %td 3 x 12
+                      %td nonstop
+            %hr/
+            / INSERT RENDER PARTIAL lowerbodyStrength_coolDown
+            =render partial: "lowerbodyStrength_coolDown"
+          / tab-pane fade in active
+          / END MONDAY
+          / **************** BEGIN TUESDAY ****************
+          #tue.tab-pane.fade
+            / Begin tab-pane Tue
+            %h2 TUESDAY
+            %ul.nav.nav-pills
+              %li.active
+                %a{:href => "#"} Footwork & Agility
+              %li.active
+                %a{:href => "#"} upperbody strength (20RM)
+            .groove-border-eee
+            %h4 WORKOUT I:  FOOTWORK & AGILITY
+            / INSERT RENDER PARTIAL footworkAgility_warmUp
+            =render partial: "footworkAgility_warmUp"
+            %hr/
+            %span.label.label-inverse WORKOUT
+            %h5 DB Drills + Combine Agility Drills
+            .row-fluid.exercises
+              .span6
+                %h5 DB Drills, 2x each, 30sec rest
+                %ul
+                  / INSERT RENDER PARTIAL workouts_dbDrills
+                  =render partial: "workouts_dbDrills"
+              .span6
+                %h5 Combine Agility, 4x each, 45sec rest
+                %ul
+                  / INSERT RENDER PARTIAL workouts_combineAgility
+                  =render partial: "workouts_combineAgility"
+            %hr/
+            / INSERT RENDER PARTIAL footworkAgility_coolDown
+            =render partial: "footworkAgility_coolDown"
+            .wo_break Minimum 1-hour training Break
+            %h4 WORKOUT II:  UPPERBODY STRENGTH TRAINING
+            / INSERT RENDER PARTIAL upperbodyStrength_warmUp
+            =render partial: "upperbodyStrength_warmUp"
+            %hr/
+            .row-fluid
+              %span.label.label-inverse WORKOUT
+              %h5 Upperbody Strength Training
+              .row-fluid
+                .span12
+                  %h5 Weights: 12RM, 90sec rest/set
+                  %table.table.table-striped
+                    %tr
+                      %th Exercise
+                      %th Intensity
+                      %th Tempo
+                      %th Volume
+                      %th Rest
+                    %tr.super_set_row
+                      %td
+                        %span.super_set superset:
+                        %a.ss_ex{:href => "#"} DB press
+                        %br/
+                        %a.ss_ex{:href => "#"} DB Bent rows
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr.super_set_row
+                      %td
+                        %span.super_set superset:
+                        %a.ss_ex{:href => "#"} Incline DB press
+                        %br/
+                        %a.ss_ex{:href => "#"} Pull-Ups
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} DB shoulder circuit
+                      %td 12RM
+                      %td
+                      %td 3 x (10-10-10-10)
+                      %td :90
+                    %tr
+                      %td
+                        %a{:href => "#"} Arm Circuit (machine)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} Ball Crunches
+                      %td 20RM
+                      %td 3-0-1-1
+                      %td 3 x 20
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} torso twists (machine)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} back extensions
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td :90
+                    %tr
+                      %td
+                        %a{:href => "#"} Heidi circuit
+                      %td body wt.
+                      %td Fast
+                      %td 3 x (10/exercise)
+                      %td :90
+            %hr/
+            / INSERT RENDER PARTIAL upperbodyStrength_coolDown
+            =render partial: "upperbodyStrength_coolDown"
+          / close tab-pane fade in active
+          / END TUESDAY
+          / **************** BEGIN WEDNESDAY ****************
+          #wed.tab-pane.fade
+            / Begin tab-pane wed
+            %h2 WEDNESDAY
+            %ul.nav.nav-pills
+              %li.active
+                %a{:href => "#"} Technical Endurance
+            .groove-border-eee
+            %h4 TECHNICAL ENDURANCE
+            / INSERT RENDER PARTIAL technicalEndurance_warmUp
+            =render partial: "technicalEndurance_warmUp"
+            %hr/
+            / INSERT RENDER PARTIAL workouts_technicalEndurance
+            =render partial: "workouts_technicalEndurance"
+            %hr/
+            / INSERT RENDER PARTIAL technicalEndurance_coolDown
+            =render partial: "technicalEndurance_coolDown"
+          / close tab-pane fade in active
+          / END WEDNESDAY
+          / **************** BEGIN THURSDAY ****************
+          #thu.tab-pane.fade
+            / Begin tab-pane Mon
+            %h2 THURSDAY
+            %ul.nav.nav-pills
+              %li.active
+                %a{:href => "#"} Speed training
+              %li.active
+                %a{:href => "#"} lowerbody strength (20RM)
+            .groove-border-eee
+            %h4 WORKOUT I:  SPEED TRAINING
+            / INSERT RENDER PARTIAL speedTraining_warmUp
+            =render partial: "speedTraining_warmUp"
+            %hr/
+            %span.label.label-inverse WORKOUT
+            %h5 Bursts + Stadiums/Bleachers
+            .row-fluid.exercises.main-workout
+              .span6
+                %h5 20-yard Bursts, 10x, 60-yard walk for rest
+                %ul
+                  / INSERT RENDER PARTIAL notes_20ydBursts
+                  =render partial: "notes_20ydBursts"
+              .span6
+                %h5 Stadiums/Bleachers, 5x, 45sec rest
+                %ul
+                  / INSERT RENDER PARTIAL notes_stadiumsBleachers
+                  =render partial: "notes_stadiumsBleachers"
+            %hr/
+            / INSERT RENDER PARTIAL speedTraining_coolDown
+            =render partial: "speedTraining_coolDown"
+            .wo_break Minimum 1-hour training Break
+            %h4 WORKOUT II:  LOWERBODY STRENGTH TRAINING
+            / INSERT RENDER PARTIAL lowerbodyStrength_warmUp
+            =render partial: "lowerbodyStrength_warmUp"
+            %hr/
+            .row-fluid
+              %span.label.label-inverse WORKOUT
+              %h5 Lowerbody Strength Training
+              .row-fluid
+                .span12
+                  %h5 Weights: 12RM, 90sec rest/set
+                  %table.table.table-striped
+                    %tr
+                      %th Exercise
+                      %th Intensity
+                      %th Tempo
+                      %th Volume
+                      %th Rest
+                    %tr
+                      %td
+                        %a{:href => "#"} lunge circuit
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} deadlifts (dumbbell)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} knee raises (cable)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} single-leg hip extension
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} hip adductors (cable)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} hip abductors (cable)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} single-leg calf raises
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr.super_set_row
+                      %td
+                        %span.super_set superset:
+                        %a.ss_ex{:href => "#"} ab wheel
+                        %br/
+                        %a.ss_ex{:href => "#"} plate twists
+                      %td 12RM
+                      %td
+                      %td 3 x 12
+                      %td nonstop
+            %hr/
+            / INSERT RENDER PARTIAL lowerbodyStrength_coolDown
+            =render partial: "lowerbodyStrength_coolDown"
+          / tab-pane fade in active
+          / END THURSDAY
+          / **************** BEGIN FRIDAY ****************
+          #fri.tab-pane.fade
+            / Begin tab-pane Tue
+            %h2 FRIDAY
+            %ul.nav.nav-pills
+              %li.active
+                %a{:href => "#"} Footwork & Agility
+              %li.active
+                %a{:href => "#"} upperbody strength (20RM)
+            .groove-border-eee
+            %h4 WORKOUT I:  FOOTWORK & AGILITY
+            / INSERT RENDER PARTIAL footworkAgility_warmUp
+            =render partial: "footworkAgility_warmUp"
+            %hr/
+            %span.label.label-inverse WORKOUT
+            %h5 DB Drills + Combine Agility Drills
+            .row-fluid.exercises
+              .span6
+                %h5 DB Drills, 2x each, 30sec rest
+                %ul
+                  / INSERT RENDER PARTIAL workouts_dbDrills
+                  =render partial: "workouts_dbDrills"
+              .span6
+                %h5 Combine Agility, 4x each, 45sec rest
+                %ul
+                  / INSERT RENDER PARTIAL workouts_combineAgility
+                  =render partial: "workouts_combineAgility"
+            %hr/
+            / INSERT RENDER PARTIAL footworkAgility_coolDown
+            =render partial: "footworkAgility_coolDown"
+            .wo_break Minimum 1-hour training Break
+            %h4 WORKOUT II:  UPPERBODY STRENGTH TRAINING
+            / INSERT RENDER PARTIAL upperbodyStrength_warmUp
+            =render partial: "upperbodyStrength_warmUp"
+            %hr/
+            .row-fluid
+              %span.label.label-inverse WORKOUT
+              %h5 Upperbody Strength Training
+              .row-fluid
+                .span12
+                  %h5 Weights: 12RM, 90sec rest/set
+                  %table.table.table-striped
+                    %tr
+                      %th Exercise
+                      %th Intensity
+                      %th Tempo
+                      %th Volume
+                      %th Rest
+                    %tr.super_set_row
+                      %td
+                        %span.super_set superset:
+                        %a.ss_ex{:href => "#"} dB press
+                        %br/
+                        %a.ss_ex{:href => "#"} DB Bent rows
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr.super_set_row
+                      %td
+                        %span.super_set superset:
+                        %a.ss_ex{:href => "#"} Incline DB press
+                        %br/
+                        %a.ss_ex{:href => "#"} Pull-Ups
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} DB shoulder circuit
+                      %td 12RM
+                      %td
+                      %td 3 x (10-10-10-10)
+                      %td :90
+                    %tr
+                      %td
+                        %a{:href => "#"} Arm Circuit (machine)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} Ball Crunches
+                      %td 20RM
+                      %td 3-0-1-1
+                      %td 3 x 20
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} torso twists (machine)
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td nonstop
+                    %tr
+                      %td
+                        %a{:href => "#"} back extensions
+                      %td 12RM
+                      %td 3-0-1-1
+                      %td 3 x 12
+                      %td :90
+                    %tr
+                      %td
+                        %a{:href => "#"} Heidi circuit
+                      %td body wt.
+                      %td Fast
+                      %td 3 x (10/exercise)
+                      %td :90
+            %hr/
+            / INSERT RENDER PARTIAL upperbodyStrength_coolDown
+            =render partial: "upperbodyStrength_coolDown"
+          / close tab-pane fade in active
+          / END FRIDAY
+          / **************** BEGIN SATURDAY ****************
+          #sat.tab-pane.fade
+            / Begin tab-pane wed
+            %h2 SATURDAY
+            %ul.nav.nav-pills
+              %li.active
+                %a{:href => "#"} Flexibility Training
+              %li.active
+                %a{:href => "#"} Rest
+            .groove-border-eee
+            %h4 FLEXIBILITY TRAINING
+            / INSERT RENDER PARTIAL flexibilityTraining_warmUp
+            =render partial: "flexibilityTraining_warmUp"
+            %hr/
+            / INSERT RENDER PARTIAL workouts_yoga
+            =render partial: "workouts_yoga"
+            %hr/
+            / INSERT RENDER PARTIAL flexibilityTraining_coolDown
+            =render partial: "flexibilityTraining_coolDown"
+          / close tab-pane fade in active
+          / END SATURDAY
+        / close #myTabContent
+      / close span9 primary-column
+      %section#secondary-nav.span3.sidebar.secondary-column
+        %aside.widget.clearfix
+          %h5.short_headline
+            %span Training Focus
+          %ul
+            %li
+              %p Light workout week designed to stretch the body, stimulate muscular adaptation and establish form and technique in speed, footwork & agility drills.
+            %li
+              %p Focus on learning the drills.
+            %li
+              %p Speed training will be extremely light.
+        / close aside widget
+      / close section sidebar span3
+    / close row-fluid
+  / close .container id="main-content"
+  / close #page

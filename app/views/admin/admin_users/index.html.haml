@@ -1,0 +1,17 @@
+.span8
+  %h2
+    Listing Admin Users
+  .span12{style: "margin-left:0px; margin-bottom:20px;"}
+    =link_to "New Admin", new_admin_admin_user_path, class: "btn btn-large btn-primary"
+  %table.table.table-bordered
+    %tr
+      %th
+        Email
+      %th
+      %th
+    -@admin_users.each do |admin_user|
+      %tr
+        %td=admin_user.email
+        %td=link_to "Delete", admin_admin_user_path(admin_user), method: :delete, confirm: "Are you sure?"
+        %td=link_to "Edit", edit_admin_admin_user_path(admin_user)
+

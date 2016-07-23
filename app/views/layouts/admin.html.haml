@@ -1,0 +1,61 @@
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en" dir="ltr">
+/[if IE 8] <html class="no-js lt-ie9" lang="en" dir="ltr">
+/ [if gt IE 8]><!
+%html.no-js{:dir => "ltr", :lang => "en"}
+  / <![endif]
+  %head
+    %title CornerbackTraining
+    = stylesheet_link_tag    "admin", :media => "all"
+    = javascript_include_tag "admin"
+    = csrf_meta_tags
+    / Icons ================
+    / For non-Retina iPhone, iPod Touch, and Android 2.1+ devices:
+    %link{:href => "apple-touch-icon-precomposed.png", :rel => "apple-touch-icon-precomposed"}/
+    / For first- and second-generation iPad:
+    %link{:href => "apple-touch-icon-72x72-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "72x72"}/
+    / For iPhone with high-resolution Retina display:
+    %link{:href => "apple-touch-icon-114x114-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "114x114"}/
+    / For third-generation iPad with high-resolution Retina display:
+    %link{:href => "apple-touch-icon-144x144-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "144x144"}/
+    %link{:href => "favicon.ico", :rel => "shortcut icon"}/
+    /
+      Open Graph for facebook
+      http://graph.facebook.com/[UserName] replace [UserName]
+      with yours and get your fb:admis content information where the XXXX goes.
+      \==================================================
+    %meta{:content => "", :property => "og:title"}/
+    %meta{:content => "", :property => "og:type"}/
+    %meta{:content => "", :property => "og:url"}/
+    %meta{:content => "", :property => "og:image"}/
+    %meta{:content => "", :property => "og:site_name"}/
+    %meta{:content => "XXXXX", :property => "fb:admins"}/
+    %meta{:content => "en_us", :property => "og:locale"}/
+    %meta{:content => "  ", :property => "og:description"}/
+    / SCRIPTS ==============================================
+    /
+      NOTE:: jquery 1.9.1 supports older ie, 2.0 does not, but 1.9.1 does not work well on ie8 and
+      lower so version 1.7.2 is called for older versions of ie
+      \:: calling jQuery in the head for ajax work if necessary.
+    / [if gt IE 8]><!
+    /[if lte IE 8]
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    / Add to Head after Style sheet http://modernizr.com/docs/#installing  ================
+    / js multiple backgrounds svg background size
+  %body.index
+    / begin accesibility skip to nav skip content
+    =render "layouts/admin_nav"
+    #page
+      -if flash[:notice]
+        .alert.alert-info
+          %button.close{type:"button", data: {dismiss: "alert"}}
+            &times;
+          =flash[:notice]
+      -if flash[:error]
+        .alert.alert-error
+          %button.close{type:"button", data: {dismiss: "alert"}}
+            &times;
+          =flash[:error]
+      =flash[:alert]
+      =yield

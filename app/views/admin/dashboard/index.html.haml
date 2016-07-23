@@ -1,0 +1,23 @@
+.span8
+  %h2
+    Listing Users
+  = paginate @users
+  %table.table.table-bordered
+    %tr
+      %th
+        Full Name
+      %th
+        Email
+      %th
+        Plan
+    -@users.each do |user|
+      %tr
+        %td=user.full_name
+        %td=user.email
+        %td=user.plan
+        %td=format_created_at_with_slash(user.created_at)		
+        %td=format_time_created_at(user.created_at)
+        		
+		
+
+  = paginate @users

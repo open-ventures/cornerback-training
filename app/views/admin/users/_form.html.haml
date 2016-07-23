@@ -1,0 +1,6 @@
+=simple_form_for @user, url: (@user.new_record? ? admin_users_path : admin_user_path(@user)) do |f|
+  =f.input :email
+  =f.input :full_name
+  =f.input :password
+  =f.input :password_confirmation
+  =f.submit "Continue"

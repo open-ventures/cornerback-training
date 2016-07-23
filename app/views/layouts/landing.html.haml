@@ -1,0 +1,26 @@
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en" dir="ltr">
+/[if IE 8] <html class="no-js lt-ie9" lang="en" dir="ltr">
+/ [if gt IE 8]><!
+%html.no-js{:dir => "ltr", :lang => "en"}
+  / <![endif]
+  %head
+    %title CornerbackTraining
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = yield(:head)
+  %body.l-body.home
+    / begin accesibility skip to nav skip content
+    =render "layouts/landing_nav"
+    -if flash[:notice]
+      .alert.alert-info
+        %button.close{type:"button", data: {dismiss: "alert"}}
+          &times;
+        =flash[:notice]
+    =flash[:alert]
+    =yield
+  / end mobile navigation trigger
+  / INSERT RENDER PARTICAL FOR SPECIFIC PAGE
+  / INSERT RENDER PARTIAL footer_sitewide
+    

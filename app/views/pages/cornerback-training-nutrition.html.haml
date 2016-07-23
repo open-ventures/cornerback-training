@@ -1,0 +1,121 @@
+#page
+  / INSERT RENDER PARTIAL nav_programGuideSections
+  =render partial: "nav_programGuideSections"
+  #main-content.container.clearfix
+    / begin main content
+    #myTabContent.tab-content
+      / begin myTabContent
+      / **************** BEGIN ARTICLE TRAINING GOALS ****************
+      #goals.tab-pane.fade.in.active
+        / Begin tab-pane Overview
+        .row-fluid.sidebar-right
+          / begin row-fluid
+          .span9.primary-column
+            / begin primary column content
+            %article
+              .row-fluid
+                %h6 Overview
+                %h1 How to Fuel Performance
+                %p.lead Strenth training is an absolutely critical area of your performance and development. Learn what equipment is needed to optimize and how to maximize results.
+              .groove-border-eee
+              .row-fluid
+                %img.span5.img-rounded{:src => "/assets/gym_1.jpg"}/
+          / close span9 primary-column
+          %section#secondary-nav.span3.sidebar.secondary-column
+            %aside.widget
+              / INSERT RENDER PARTIAL aside_trainingInsightNav
+              =render partial: "aside_trainingInsightNav"
+            / close aside widget
+          / close section sidebar span3
+        / close row-fluid
+      / tab-pane fade in active
+      / END Overview
+      / **************** BEGIN Overview ****************
+      #overview.tab-pane.fade
+        / Begin tab-pane Overview
+        .row-fluid.sidebar-right
+          / begin row-fluid
+          .span9.primary-column
+            / begin primary column content
+            / INSERT RENDER PARTIAL section_overviewTOC
+            =render partial: "section_overviewTOC"
+          / close span9 primary-column
+          %section#secondary-nav.span3.sidebar.secondary-column
+            %aside.widget
+            / close aside widget
+          / close section sidebar span3
+        / close row-fluid
+      / tab-pane fade
+      / END Overview
+      / **************** BEGIN Getting Started ****************
+      #gettingStarted.tab-pane.fade
+        / Begin tab-pane Getting Started
+        .row-fluid.sidebar-right
+          / begin row-fluid
+          .span9.primary-column
+            / begin primary column content
+            / INSERT RENDER PARTIAL section_gettingStartedTOC
+            =render partial: "section_gettingStartedTOC"
+          / close span9 primary-column
+          %section#secondary-nav.span3.sidebar.secondary-column
+            %aside.widget
+            / close aside widget
+          / close section sidebar span3
+        / close row-fluid
+      / tab-pane fade
+      / END Getting Started
+      / **************** BEGIN Training Insight ****************
+      #trainingInsight.tab-pane.fade
+        / Begin tab-pane Training Insight
+        .row-fluid.sidebar-right
+          / begin row-fluid
+          .span9.primary-column
+            / begin primary column content
+            / INSERT RENDER PARTIAL section_trainingInsightTOC
+            =render partial: "section_trainingInsightTOC"
+          / close span9 primary-column
+          %section#secondary-nav.span3.sidebar.secondary-column
+            %aside.widget
+            / close aside widget
+          / close section sidebar span3
+        / close row-fluid
+      / tab-pane fade
+      / END Training Insight
+      / **************** BEGIN Customizations ****************
+      #customizations.tab-pane.fade
+        / Begin tab-pane Customizations
+        .row-fluid.sidebar-right
+          / begin row-fluid
+          .span9.primary-column
+            / begin primary column content
+            / INSERT RENDER PARTIAL section_customizationsTOC
+            =render partial: "section_customizationsTOC"
+          / close span9 primary-column
+          %section#secondary-nav.span3.sidebar.secondary-column
+            %aside.widget
+            / close aside widget
+          / close section sidebar span3
+        / close row-fluid
+      / tab-pane fade
+      / END Customizations
+      / **************** BEGIN Beyond The Program ****************
+      #beyond.tab-pane.fade
+        / Begin tab-pane Beyond The Program
+        .row-fluid.sidebar-right
+          / begin row-fluid
+          .span9.primary-column
+            / begin primary column content
+            / INSERT RENDER PARTIAL section_beyondTheProgramTOC
+            =render partial: "section_beyondTheProgramTOC"
+          / close span9 primary-column
+          %section#secondary-nav.span3.sidebar.secondary-column
+            %aside.widget
+            / close aside widget
+          / close section sidebar span3
+        / close row-fluid
+      / tab-pane fade
+      / END Beyond The Program
+    / close #myTabContent
+  / close .container id="main-content"
+  / close #page
+  / JS JQuery ================

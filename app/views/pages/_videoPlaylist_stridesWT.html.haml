@@ -1,0 +1,60 @@
+:javascript
+    $(document).ready(function(){
+    
+      window.prettyPrint && prettyPrint();
+      
+      var winWidth = $(window).width(),
+      thumbs = (winWidth > 767) ? true : false;
+      
+      console.log(winWidth);
+
+      
+      //Advanced Examples - Mixed & Google Maps
+      $('#strides_WT').click(function(){
+        $.iLightBox(
+          [
+            {
+               URL: "//www.youtube.com/embed/LKeea_AgEQc?rel=0",
+              options: {
+                thumbnail: "/img/video_thumbnails/strides-walk-turns.jpg",
+                fullViewPort: 'stretch',
+                icon: "video",
+                width: 1280,
+                height: 720
+              }
+            },
+          ],
+          {
+            path: 'horizontal',
+            skin: 'metro-black',
+            styles: {
+              nextOpacity: 0,
+              prevOpacity: 0
+            },
+            controls: {
+              thumbnail: thumbs
+            }
+          }
+        );
+        return false;
+      });
+      
+    });
+    
+    $(window).load(function(){
+      $('[data-spy="scroll"]').each(function () {
+        var t = $(this);
+        t.scrollspy();
+        $(window).resize(function(){
+          t.scrollspy('refresh');
+          $(this).trigger('scroll');
+        });
+      });
+    });
+    
+    window.___gcfg = {lang: "en"};
+    (function() {
+      var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+      po.src = "https://apis.google.com/js/plusone.js";
+      var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+    })();

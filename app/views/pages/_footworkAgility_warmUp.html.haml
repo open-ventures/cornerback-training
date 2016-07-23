@@ -1,0 +1,158 @@
+.w-tabs.layout_accordion.type_toggle
+  .w-tabs-h
+    .w-tabs-section
+      .w-tabs-section-title
+        %span.w-tabs-section-title-text Seated Stretches
+      .w-tabs-section-content
+        .w-tabs-section-content-h
+          .container.navbar-wrapper
+            .featurette
+              %h6 (30 Second Hold)
+              %ul#images
+                %li
+                  %a.thumbnail{"data-id" => "Butterfly Stretch", "data-options" => "thumbnail: '/img/stretching/groin-butterfly-front.jpg'", href: "/img/stretching/groin-butterfly-front.jpg"} butterfly Groin Stretch
+
+                  %a.thumbnail{"data-id" => "Butterfly Stretch", "data-options" => "thumbnail: '/img/stretching/groin-butterfly.jpg'", href: "/img/stretching/groin-butterfly.jpg"}
+
+                
+                %li
+                  %a.thumbnail{"data-id" => "Hurdle Stretch", "data-options" => "thumbnail: '/img/stretching/ham-hurdle-front.jpg'", href: "/img/stretching/ham-hurdle-front.jpg"} hurdle Stretch
+
+                  %a.thumbnail{"data-id" => "Hurdle Stretch", "data-options" => "thumbnail: '/img/stretching/ham-hurdle-left.jpg'", href: "/img/stretching/ham-hurdle-left.jpg"}
+
+                %li
+                  %a.thumbnail{"data-id" => "Playboys", "data-options" => "thumbnail: '/img/stretching/playboys-front.jpg'", href: "/img/stretching/playboys-front.jpg"} playboys
+
+                %li
+                  %a.thumbnail{"data-id" => "Supine Glute", "data-options" => "thumbnail: '/img/stretching/glute-supine.jpg'", href: "/img/stretching/glute-supine.jpg"} supine glute
+                  
+                %li
+                  %a.thumbnail{"data-id" => "Supine Cross", "data-options" => "thumbnail: '/img/stretching/supine-cross.jpg'", href: "/img/stretching/supine-cross.jpg"} supine cross
+
+                %li cobra
+    .w-tabs-section
+      .w-tabs-section-title
+        %span.w-tabs-section-title-text Standing Stretches
+      .w-tabs-section-content
+        .w-tabs-section-content-h
+          .container.navbar-wrapper
+            .featurette
+              %h6 (30 Second Hold)
+              %ul#images
+                %li
+                  %a.thumbnail{"data-id" => "Hamstring Grab", "data-options" => "thumbnail: '/img/stretching/ham-grab-calf.jpg'", href: "/img/stretching/ham-grab-calf.jpg"} Hamstring Grab
+                %li
+                  %a.thumbnail{"data-id" => "Leaning Groin", "data-options" => "thumbnail: '/img/stretching/groin.jpg'", href: "/img/stretching/groin.jpg"} leaning groin
+                %li
+                  %a.thumbnail{"data-id" => "Ankle Grabs", "data-options" => "thumbnail: '/img/stretching/ham-groin-ankle.jpg'", href: "/img/stretching/ham-groin-ankle.jpg"} ankle grabs
+                %li
+                  %a.thumbnail{"data-id" => "Hip Flexor", "data-options" => "thumbnail: '/img/stretching/hip-flexor.jpg'", href: "/img/stretching/hip-flexor.jpg"} hip flexor
+
+                  %a.thumbnail{"data-id" => "Hip Flexor", "data-options" => "thumbnail: '/img/stretching/hip-flexor-front.jpg'", href: "/img/stretching/hip-flexor-front.jpg"}
+                %li
+                  %a.thumbnail{"data-id" => "Quad Stretch", "data-options" => "thumbnail: '/img/stretching/quad-stretch-front.jpg'", href: "/img/stretching/quad-stretch-front.jpg"} quad
+
+                  %a.thumbnail{"data-id" => "Quad Stretch", "data-options" => "thumbnail: '/img/stretching/quad-stretch.jpg'", href: "/img/stretching/quad-stretch.jpg"}
+
+                %li
+                  %a.thumbnail{"data-id" => "Dorsiflexed Calf", "data-options" => "thumbnail: '/img/stretching/calf-grab-pole.jpg'", href: "/img/stretching/calf-grab-pole.jpg"} dorsiflexed calf
+                %li
+                  %a.thumbnail{"data-id" => "Leaning Calf", "data-options" => "thumbnail: '/img/stretching/calf-flat.jpg'", href: "/img/stretching/calf-flat.jpg"} leaning calf
+    
+
+
+    / /.container
+    /
+      Le javascript
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    %script{src: "/js/jquery.isotope.min.js"}
+  :javascript
+          //Video - Simple Usage
+          $('#video_94').iLightBox();
+          $('#video_93').iLightBox();
+          $('#video_92').iLightBox();
+          $('#video_91').iLightBox();
+          $('#video_90').iLightBox();
+          $('#video_89').iLightBox();
+
+
+  :javascript
+      $(document).ready(function(){
+
+        var $container = $('ul#images'),
+        $comments = $('<div class="comments"></div>'),
+        iL = $('ul#images li a').iLightBox();
+        
+        iL.setOption({
+          skin: 'metro-black custom-class',
+          fullViewPort: 'fit',
+          overlay: {
+            opacity: 1,
+            blur: false
+          },
+          styles: {
+            pageOffsetX: 300,
+            nextOffsetX: 15,
+            nextOpacity: 0,
+            prevOffsetX: 15,
+            prevOpacity: 0
+          },
+          thumbnails: {
+            normalOpacity: .5,
+            activeOpacity: 1
+          },
+          effects: {
+            loadedFadeSpeed: 10,
+            switchSpeed: 700
+          },
+          callback: {
+            onOpen: function(){
+              $('body').append($comments);
+              
+              var t = this,
+              id = t.itemsObject[t.vars.current].data('id');
+              $comments.html('Image '+(t.vars.current+1)+' of '+t.vars.total+'.<br>Image id is <b>'+id+'</b>.');
+            },
+            onHide: function(){
+              $comments.hide().remove();
+            },
+            onAfterChange: function(api){
+              var t = this,
+              id = t.itemsObject[api.currentItem].data('id');
+              $comments.html('Image '+(api.currentItem+1)+' of '+t.vars.total+'.<br>Image id is <b>'+id+'</b>.');
+            },
+            onAfterLoad: function(api){
+              $comments.fadeIn(180);
+            },
+            onEnterFullScreen: function(){
+              $comments.hide();
+            },
+            onExitFullScreen: function(){
+              $comments.show();
+            }
+          }
+        });
+
+        $container.isotope({
+          itemSelector : 'li'
+        });
+        
+        $(window).bind('resize load', function(){
+          $container.isotope( 'reLayout' ); 
+        });
+
+      });
+  
+      window.___gcfg = {lang: "en"};
+      (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "https://apis.google.com/js/plusone.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+      })();
+
+
+
+
+
+

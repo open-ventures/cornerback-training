@@ -1,0 +1,231 @@
+:javascript
+      $(document).ready(function(){
+      
+        window.prettyPrint && prettyPrint();
+        
+        var winWidth = $(window).width(),
+        thumbs = (winWidth > 767) ? true : false;
+        
+        console.log(winWidth);
+
+        
+
+        //Advanced Examples - Mixed & Google Maps
+        $('#mixed_contents').click(function(){
+          $.iLightBox(
+            [
+              {
+                URL: "http://iprodev.com/ilightbox/assets/MV5BMTM1NTMyMDE4OV5BMTFeQW1wNF5BbWU3MDEyNTI0OTU.mp4",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/trailer.jpg",
+                  html5video: {
+                    webm: "http://iprodev.com/ilightbox/assets/MV5BMTM1NTMyMDE4OV5BMTFeQW1wNF5BbWU3MDEyNTI0OTU.webm",
+                    poster: "assets/img/sherlock_holmes/trailer.jpg"
+                  },
+                  width: 1280,
+                  height: 544
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/1.jpg",
+                caption: 'This one fill the screen when you enter fullscreen.',
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/1.jpg",
+                  fullViewPort: 'fill'
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/2.jpg",
+                caption: 'This one fit to the screen when you enter fullscreen.',
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/2.jpg",
+                  fullViewPort: 'fit'
+                }
+              },
+              {
+                URL: "http://www.youtube.com/embed/lNxhpNpnAkk?autohide=1&border=0&egm=0&showinfo=0&showsearch=0",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/mqdefault.jpg",
+                  fullViewPort: 'stretch',
+                  icon: "video",
+                  width: 1280,
+                  height: 720
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/3.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/3.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/4.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/4.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/5.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/5.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/6.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/6.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/7.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/7.jpg"
+                }
+              },
+              {
+                URL: "assets/img/sherlock_holmes/8.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/sherlock_holmes/8.jpg"
+                }
+              }
+            ],
+            {
+              path: 'horizontal',
+              skin: 'metro-black',
+              styles: {
+                nextOpacity: 0,
+                prevOpacity: 0
+              },
+              controls: {
+                thumbnail: thumbs
+              }
+            }
+          );
+          return false;
+        });
+        
+        
+           //Advanced Examples - Events
+        $('#events_gallery').click(function(){
+          var con = $('#pre_events');
+          $.iLightBox(
+            [
+              {
+                URL: "assets/img/photos/MS-test-day-27898.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27898.jpg"
+                },
+                type: "image",
+                caption: "First Caption. It'll blow your mind."
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27771.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27771.jpg"
+                },
+                type: "image",
+                caption: "Oh yeah, it's that good. See for yourself."
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27845.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27845.jpg"
+                },
+                type: "image",
+                caption: "And lastly, this one. Checkmate."
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27780.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27780.jpg"
+                },
+                type: "image"
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-278081.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-278081.jpg"
+                },
+                type: "image"
+              },
+              {
+                URL: "assets/img/photos/MS-test-day-27749.jpg",
+                options: {
+                  thumbnail: "assets/img/thumbnails/MS-test-day-27749_2.jpg"
+                },
+                type: "image"
+              }
+            ],
+            {
+              path: 'horizontal',
+              overlay: {
+                opacity: .7
+              },
+              controls: {
+                thumbnail: thumbs
+              },
+              callback: {
+                onOpen: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onOpen" fired<br />').scrollTop(10000);
+                },
+                onRender: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onRender" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onShow: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onShow" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onHide: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onHide" fired.<br /><p>-----------------------------------</p>').scrollTop(10000);
+                },
+                onEnterFullScreen: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onEnterFullScreen" fired.<br />').scrollTop(10000);
+                },
+                onExitFullScreen: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onExitFullScreen" fired.<br />').scrollTop(10000);
+                },
+                onBeforeLoad: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onBeforeLoad" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onAfterLoad: function(api, position){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onAfterLoad" fired for item '+position+'.<br />').scrollTop(10000);
+                },
+                onBeforeChange: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onBeforeChange" fired.<br />').scrollTop(10000);
+                },
+                onAfterChange: function(){
+                  var d = new Date();
+                  con.append(d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+'.'+d.getMilliseconds()+' - Event "onAfterChange" fired.<br />').scrollTop(10000);
+                }
+              }
+            }
+          );
+          return false;
+        });
+      });
+      
+      $(window).load(function(){
+        $('[data-spy="scroll"]').each(function () {
+          var t = $(this);
+          t.scrollspy();
+          $(window).resize(function(){
+            t.scrollspy('refresh');
+            $(this).trigger('scroll');
+          });
+        });
+      });
+      
+      window.___gcfg = {lang: "en"};
+      (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "https://apis.google.com/js/plusone.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+      })();

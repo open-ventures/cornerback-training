@@ -1,0 +1,53 @@
+%link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Lustria", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700italic,700,400italic", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Lato:100,300,400,100italic,300italic", media: "all", rel: "stylesheet", type: "text/css"}/
+
+%link{href: "/css/style.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/rs-settings.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/motioncss.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/motioncss-widgets.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/font-awesome.css", media: "all", rel: "stylesheet", type: "text/css"}/
+
+%link{href: "/css/magnific-popup.css", media: "all", rel: "stylesheet", type: "text/css"}/
+
+
+%link{href: "/css/animation.css", media: "all", rel: "stylesheet", type: "text/css"}/
+%link{href: "/css/color_5.css", media: "all", rel: "stylesheet", type: "text/css"}/
+
+%script{src: "/js/jquery-1.9.1.js", type: "text/javascript"}
+%script{src: "/js/g-alert.js", type: "text/javascript"}
+%script{src: "/js/jquery.carousello.js", type: "text/javascript"}
+%script{src: "/js/jquery.flexslider.js", type: "text/javascript"}
+%script{src: "/js/jquery.isotope.js", type: "text/javascript"}
+%script{src: "/js/jquery.magnific-popup.js", type: "text/javascript"}
+%script{src: "/js/jquery.parallax.js", type: "text/javascript"}
+%script{src: "/js/jquery.simpleplaceholder.js", type: "text/javascript"}
+%script{src: "/js/jquery.smoothScroll.js", type: "text/javascript"}
+%script{src: "/js/jquery.themepunch.revolution.min.js", type: "text/javascript"}
+%script{src: "/js/plugins.js", type: "text/javascript"}
+%script{src: "/js/waypoints.min.js", type: "text/javascript"}
+%script{src: "/js/w-lang.js", type: "text/javascript"}
+%script{src: "/js/w-search.js", type: "text/javascript"}
+%script{src: "/js/w-tabs.js", type: "text/javascript"}
+%script{src: "/js/w-timeline.js", type: "text/javascript"}
+
+/ MAIN
+.l-canvas.type_wide.col_sidecont.headertype_extended
+  .l-canvas-h.l-canvas-h
+
+    .l-main
+      .l-main-h.workout
+
+        .l-submain.signup
+          .l-submain-h.g-html.i-cf
+
+            .g-cols
+            .two-thirds.fb-signup.email
+              %h1 Awesome, you're all set. Check your e-mail.
+              %h3 ( Click the confirmation link )
+              %br 
+              =link_to "<img src='/img/email_envelope_orange_circled.jpg'></img>".html_safe, user_omniauth_authorize_path(:facebook)
+
